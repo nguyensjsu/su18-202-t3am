@@ -8,11 +8,9 @@ Welcome to the su18-202-t3am wiki!
 - Lin Cheng
 
 ## Important Links
-### Sprint google sheet
+### Sprint board in google sheet
+Please update your task here....
 https://docs.google.com/spreadsheets/d/1pfwGInHH9siD7P3Q7gQIALwi6-xfxB6CuSd0tBX_e3c/edit?usp=sharing
-
-### Kanban board
-https://github.com/nguyensjsu/su18-202-t3am/projects/1
 
 ### Github link...
 https://github.com/nguyensjsu/su18-202-t3am
@@ -37,6 +35,10 @@ Business logics will be bundled as a jar to be used inside the rest api app (eit
 
 #### Back End
 API App to have the following api's:
+
+##### GET /api/v1/authentication 
+input: ?user_id=syle
+output: nothing, but will create the new user if the user_id is brandh new
 
 ##### GET /api/v1/user_info return the information related to the user by user_id
 input: ?user_id=syle
