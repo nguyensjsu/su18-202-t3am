@@ -2,10 +2,10 @@
 Welcome to the su18-202-t3am wiki!
 
 ## Members
-Sy Le
-Kevin Lai
-Hyunwook Shin
-Lin Cheng
+- Sy Le
+- Kevin Lai
+- Hyunwook Shin
+- Lin Cheng
 
 ## Important Links
 ### Sprint google sheet
@@ -13,7 +13,6 @@ https://docs.google.com/spreadsheets/d/1pfwGInHH9siD7P3Q7gQIALwi6-xfxB6CuSd0tBX_
 
 ### Kanban board
 https://github.com/nguyensjsu/su18-202-t3am/projects/1
-
 
 ### Github link...
 https://github.com/nguyensjsu/su18-202-t3am
@@ -39,7 +38,7 @@ Business logics will be bundled as a jar to be used inside the rest api app (eit
 #### Back End
 API App to have the following api's:
 
-a. GET /api/v1/user_info return the information related to the user by user_id
+##### GET /api/v1/user_info return the information related to the user by user_id
 input: ?user_id=syle
 output: 
 {
@@ -47,7 +46,7 @@ user_id: "syle",
 balance: 20
 }
 
-b. GET /api/v1/transactions list all the transactions (card reloads vs purchase history) by user_id
+##### GET /api/v1/transactions list all the transactions (card reloads vs purchase history) by user_id
 timestamp is epoch unix timestamp
 input: ?user_id=syle
 output:[
@@ -55,11 +54,11 @@ output:[
 {type: 'purchase', balance: -5, timestamp: 4567}
 ]
 
-c. POST /api/v1/reload add a new card to the list
+##### POST /api/v1/reload add a new card to the list
 input: user_id, balance, card_id, card_code
 output: no output (HTTP Response code - some success code)
 
-d. POST /api/v1/purchase add a new purchase transaction to the list
+##### POST /api/v1/purchase add a new purchase transaction to the list
 input: user_id, balance, note
 output: no output (HTTP Response code - some success code)
 
