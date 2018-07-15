@@ -16,7 +16,7 @@
                 <property name="driver" value="org.postgresql.Driver"/>
                 <property name="url" value="jdbc:postgresql://ambari.cfcktxhbpkfb.us-east-1.rds.amazonaws.com:5432/ambari"/>
                 <property name="username" value="ambari"/>
-                <property name="password" value="_get_password_from_doc"/>
+                <property name="password" value="_your_db_password"/>
             </dataSource>
         </environment>
     </environments>

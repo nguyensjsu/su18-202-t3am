@@ -1,3 +1,5 @@
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.rest.RestBindingMode;
 import processor.BizGetProcessor;
@@ -27,15 +29,22 @@ public class RestService extends CamelService {
                         .post("/{path}").to("direct:bizpost");
 
                 from("direct:bizget")
-                        .process(new BizGetProcessor());
+                        .process(getProcessor);
                 from("direct:bizpost")
-                        .process(new BizPostProcessor());
+                        .process(postProcessor);
             }
         });
     }
+    
+    static BizGetProcessor getProcessor;
+    static BizPostProcessor postProcessor;
 
     public static void main(String[] args){
-        try {
+        Injector injector = Guice.createInjector(new AppInjector());
+        getProcessor = injector.getInstance(BizGetProcessor.class);
+        postProcessor = injector.getInstance(BizPostProcessor.class);
+        
+        try {        
             instance.start();
         } catch (Exception e) {
             e.printStackTrace();

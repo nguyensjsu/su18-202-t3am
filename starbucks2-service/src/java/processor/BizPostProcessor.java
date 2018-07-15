@@ -1,9 +1,5 @@
 package processor;
 
-import dao.BaseDao;
-import dao.CardImpl;
-import dao.PurchaseImpl;
-import dao.UserProfileImpl;
 import helper.DateHelper;
 import helper.JSONHelper;
 import helper.UUIDHelper;
@@ -16,23 +12,17 @@ import java.util.Map;
 public class BizPostProcessor extends HttpProcessor {
     @Override
     String handle(final Map<String, Object> map) throws Exception {
-
-        BaseDao dao;
-
-        switch (path){
-
+        switch (path) {
             case "reload":
                 Card c = JSONHelper.fromJson2(body, Card.class);
-                dao = new CardImpl();
-                dao.create(c);
+                cardDao.create(c);
                 return JSONHelper.toJson(c);
                 
             case "purchase":
                 // User ID, balance(or the cost of the order), and purchase location will be from the body
                 Purchase p = JSONHelper.fromJson2(body, Purchase.class);
                 p.setDate_added(DateHelper.getCurrentEpochTimestamp());
-                dao = new PurchaseImpl();
-                dao.create(p);
+                purchaseDao.create(p);
                 return JSONHelper.toJson(p);
                 
             case "signup":
@@ -43,9 +33,7 @@ public class BizPostProcessor extends HttpProcessor {
                 u.setUser_id(UUIDHelper.getRandomUUID());
                 u.setDate_added(DateHelper.getCurrentEpochTimestamp());
                 
-                
-                dao = new UserProfileImpl();
-                dao.create(u);
+                userProfileDao.create(u);
                 return JSONHelper.toJson(u);
                 
             case "signin":

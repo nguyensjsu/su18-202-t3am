@@ -1,5 +1,9 @@
 package processor;
 
+import com.google.inject.Inject;
+import dao.CardDao;
+import dao.PurchaseDao;
+import dao.UserProfileDao;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.commons.lang.StringUtils;
@@ -13,6 +17,14 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 abstract class HttpProcessor implements Processor {
+    @Inject
+    CardDao cardDao;
+    
+    @Inject
+    UserProfileDao userProfileDao;
+    
+    @Inject
+    PurchaseDao purchaseDao;
 
     protected String body = "";
     protected String path = null;

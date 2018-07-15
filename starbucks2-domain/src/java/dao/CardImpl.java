@@ -1,11 +1,13 @@
 package dao;
 
+import com.google.inject.Singleton;
 import model.Card;
 import org.apache.ibatis.session.SqlSession;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 
+@Singleton
 public class CardImpl extends BasePOJO implements CardDao {
     @Override
     public Card create(Card o) throws Exception {

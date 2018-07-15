@@ -5,6 +5,7 @@
  */
 package dao;
 
+import com.google.inject.Singleton;
 import model.Purchase;
 import org.apache.ibatis.session.SqlSession;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
  *
  * @author syle
  */
+@Singleton
 public class PurchaseImpl extends BasePOJO implements PurchaseDao{
 
     @Override

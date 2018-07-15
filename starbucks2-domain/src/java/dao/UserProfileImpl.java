@@ -5,6 +5,7 @@
  */
 package dao;
 
+import com.google.inject.Singleton;
 import java.util.List;
 import model.UserProfile;
 import org.apache.ibatis.session.SqlSession;
@@ -13,6 +14,7 @@ import org.apache.ibatis.session.SqlSession;
  *
  * @author syle
  */
+@Singleton
 public class UserProfileImpl  extends BasePOJO implements UserProfileDao {
     @Override
     public UserProfile create(UserProfile o) throws Exception {
