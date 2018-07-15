@@ -7,6 +7,7 @@ import model.Card;
 
 import java.util.List;
 import java.util.Map;
+import model.UserProfile;
 
 public class BizGetProcessor extends GetProcessor {
 
@@ -22,6 +23,15 @@ public class BizGetProcessor extends GetProcessor {
                 String uid = paramMap.get("uid");
                 List<Card> is = dao.list(uid);
                 return JSONHelper.toJson(is);
+                
+            case "user_profile":
+                // add code to response with user_profile
+                UserProfile user = new UserProfile();
+                user.setFullName("Sy Le");
+                user.setBalance(20.0);
+                user.setUid(1);
+                user.setDate_added(1524957777777l);
+                return "user_profile_code";
 
             default:
                 return "Not supported.";

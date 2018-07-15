@@ -18,6 +18,18 @@ public class BizPostProcessor extends PostProcessor {
                 dao = new CardImpl();
                 dao.create(c);
                 return JSONHelper.toJson(c);
+                
+            case "purchase":
+                // add code here to do purchase
+                return "purchase";
+                
+            case "signin":
+                // add code here
+                return "signin";
+                
+            case "signout":
+                // add code here
+                return "signout";
 
             default:
                 throw new Exception("Not supported.");
