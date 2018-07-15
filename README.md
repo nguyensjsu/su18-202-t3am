@@ -27,7 +27,7 @@ Please update your task here....
 Get Cards by UserId
 ```
 curl -X GET \
-  'http://localhost:8202/api/v1/cards?uid=1'
+  'http://localhost:8202/api/v1/cards?uid=2c60158e-d432-4b78-a300-360cc6fa7260'
 ```
 
 Create User
