@@ -10,19 +10,27 @@ package model;
  * @author syle
  */
 public class Purchase {
-    long uid;
+    String uid;
     long date_added = 0;
-    double balance;
+    double balance = 0;
     String note; // purchase note
     // this is a long and lat used for the store position
     double latPostion;
     double longPosition;
 
-    public long getUid() {
+    public Purchase() {
+    }
+    
+    public Purchase(double balance, String note) {
+        this.balance = balance;
+        this.note = note;
+    }
+    
+    public String getUid() {
         return uid;
     }
 
-    public void setUid(long uid) {
+    public void setUid(String uid) {
         this.uid = uid;
     }
 
