@@ -12,7 +12,7 @@ package model;
 public class UserProfile {
     long uid;
     double balance;
-    String fullName;
+    String full_name;
     String password;
     long date_added = 0; // created since (used for member joined date)
 
@@ -32,12 +32,12 @@ public class UserProfile {
         this.balance = balance;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getFull_name() {
+        return full_name;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setFull_name(String full_name) {
+        this.full_name = full_name;
     }
 
     public String getPassword() {
@@ -56,7 +56,6 @@ public class UserProfile {
         this.date_added = date_added;
     }
 
-    
     
     
 }

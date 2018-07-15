@@ -27,11 +27,11 @@ public class BizGetProcessor extends HttpProcessor {
             case "user_profile":
                 // add code to response with user_profile
                 UserProfile user = new UserProfile();
-                user.setFullName("Sy Le");
+                user.setFull_name("Sy Le");
                 user.setBalance(20.0);
                 user.setUid(1);
                 user.setDate_added(1524957777777l);
-                return "user_profile_code";
+                return JSONHelper.toJson(user);
 
             default:
                 return "Not supported.";
