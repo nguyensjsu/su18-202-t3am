@@ -1,4 +1,4 @@
-CREATE TABLE public.sb_card (
+CREATE TABLE sb_card (
   number character varying NULL,
   code character varying NULL,
   balance numeric NULL,
@@ -8,10 +8,13 @@ CREATE TABLE public.sb_card (
 
 
 
-CREATE TABLE public.sb_user (
+CREATE TABLE sb_user (
   full_name character varying NULL,
   password character varying NULL,
   balance numeric NULL,
-  uid bigint NOT NULL,
+  uid character varying NOT NULL,
   date_added bigint NULL
 );
+
+
+ALTER TABLE sb_user ADD UNIQUE (email);

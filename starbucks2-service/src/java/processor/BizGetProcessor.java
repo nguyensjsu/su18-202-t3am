@@ -29,7 +29,7 @@ public class BizGetProcessor extends HttpProcessor {
                 UserProfile user = new UserProfile();
                 user.setFull_name("Sy Le");
                 user.setBalance(20.0);
-                user.setUid(1);
+                user.setUid("1");
                 user.setDate_added(1524957777777l);
                 return JSONHelper.toJson(user);
 

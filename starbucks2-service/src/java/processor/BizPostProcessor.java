@@ -5,6 +5,7 @@ import dao.CardImpl;
 import dao.UserProfileImpl;
 import helper.DateHelper;
 import helper.JSONHelper;
+import helper.UUIDHelper;
 import model.Card;
 import model.UserProfile;
 
@@ -31,8 +32,8 @@ public class BizPostProcessor extends HttpProcessor {
             case "signup":
                 UserProfile u = JSONHelper.fromJson2(body, UserProfile.class);
                 
-                // generate the uid
-                u.setUid(3);
+                // generate the uid and current timestamp
+                u.setUid(UUIDHelper.getRandomUUID());
                 u.setBalance(0.0);
                 u.setDate_added(DateHelper.getCurrentEpochTimestamp());
                 
