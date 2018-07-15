@@ -125,10 +125,13 @@ e. add new purchase (refer to the above api for input)
 ### 07/15/2018
 - Initial Code complete, Server is now Up and Running
 - Created 2 AWS EC instances for prod and dev
+  - PROD: ec2-18-209-62-254.compute-1.amazonaws.com
+  - DEV: ec2-34-192-241-153.compute-1.amazonaws.com
 - Created AWS RDS for data store
 - Functional getCards API
 - Functional signUp API
 - Basic plumbing works for POJO Objects such as `Purchase`, `UserProfile`, `Card`
+- Created SQL Backup file for new deployment `sql_backup`
 
 ### 07/14/2018
 #### Dependencies
