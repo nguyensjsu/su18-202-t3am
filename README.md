@@ -134,12 +134,33 @@ e. add new purchase (refer to the above api for input)
 - Created SQL Backup file for new deployment `sql_backup`
 
 ### 07/14/2018
-#### Dependencies
-- [ ] Set up AWS Dynamo DB (for NoSQL) to persist data. 2 instances: 1 for prod and 1 for dev.
-- [ ] Set up the pipeline for webapp (AWS Beanstalk) includes the domain and basic hello world api.
+- Team meetup, draft out dependencies, task breakdown and intial work
+
+
+## TODO's
+### Infra Works
+- [X] Set up AWS Dynamo DB (for NoSQL) or RDS to persist data. 2 instances: 1 for prod and 1 for dev.
+- [X] Set up the pipeline for webapp (AWS Beanstalk) includes the domain and basic hello world api.
 - [ ] [Nice to have]. Set up CI/CD pipeline for the above webapp/noSQL in the github repo...
 
-#### Desired Extra Credit Sections
+### API Work
+- [X] User Signup (Sy)
+- [ ] User Signin (Sy)
+- [ ] User Signout (Sy)
+- [ ] Create Card / Reload (TBD)
+- [ ] Create Purchase / Payment (TBD)
+- [X] Get Cards by uid (Lin) 
+- [] Get Purchase by uid (TBD)
+
+### Testings / Misc
+- [ ] Unit Tests
+- [ ] Integration
+- [ ] UML Diagrams Documentation
+- [ ] Project Report
+
+
+
+### Desired Extra Credit Sections
 - [X] Implement a "real" iOS or Android Mobile App calling the REST API
 - [ ] Deploy API to AWS in an Auto Scaled EC2 Cluster with Load Balancer
 - [ ] Deploy API to AWS as Docker Containers in Amazon Containers
