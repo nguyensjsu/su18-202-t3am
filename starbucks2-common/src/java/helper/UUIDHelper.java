@@ -5,12 +5,15 @@
  */
 package helper;
 
+import java.util.UUID;
+
 /**
  *
  * @author syle
  */
 public class UUIDHelper {
     public static String getRandomUUID(){
-        return "random_uuid_123";
+        final UUID uuid = UUID.randomUUID();
+        return uuid.toString();
     }
 }
