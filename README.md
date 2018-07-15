@@ -23,6 +23,27 @@ Please update your task here....
 
 
 
+## Sample Curl / Demo
+Get Cards by UserId
+```
+curl -X GET \
+  'http://localhost:8202/api/v1/cards?uid=1'
+```
+
+Create User
+```
+curl -X POST \
+  http://localhost:8202/api/v1/card \
+  -H 'accept: application/json' \
+  -H 'cache-control: no-cache' \
+  -d '{
+  "email": "syle1@gmail.com",
+  "full_name": "Sy Le",
+  "password": "password"
+}'
+```
+
+
 
 ## 07/14/2018 - Update
 ### Dependencies
@@ -44,13 +65,13 @@ Business logics will be bundled as a jar to be used inside the rest api app (eit
 #### Back End
 API App to have the following api's:
 
-##### GET /api/v1/authentication 
+##### GET /api/v1/authentication
 input: ?user_id=syle
 output: nothing, but will create the new user if the user_id is brandh new
 
 ##### GET /api/v1/user_info return the information related to the user by user_id
 input: ?user_id=syle
-output: 
+output:
 {
 user_id: "syle",
 balance: 20

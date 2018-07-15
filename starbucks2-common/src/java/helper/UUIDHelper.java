@@ -11,6 +11,6 @@ package helper;
  */
 public class UUIDHelper {
     public static String getRandomUUID(){
-        return "random_uuid";
+        return "random_uuid_123";
     }
 }

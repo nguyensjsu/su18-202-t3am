@@ -15,21 +15,23 @@ public class BizGetProcessor extends HttpProcessor {
     String handle(final Map<String, Object> map) throws Exception {
 
         BaseDao dao;
+        String uid;
 
         switch (path){
 
             case "cards":
                 dao = new CardImpl();
-                String uid = paramMap.get("uid");
+                uid = paramMap.get("uid");
                 List<Card> is = dao.list(uid);
                 return JSONHelper.toJson(is);
                 
             case "user_profile":
                 // add code to response with user_profile
+                uid = paramMap.get("uid");
                 UserProfile user = new UserProfile();
+                user.setUid(Long.valueOf(uid));
                 user.setFull_name("Sy Le");
                 user.setBalance(20.0);
-                user.setUid("1");
                 user.setDate_added(1524957777777l);
                 return JSONHelper.toJson(user);
 
