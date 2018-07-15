@@ -1,0 +1,17 @@
+CREATE TABLE public.sb_card (
+  number character varying NULL,
+  code character varying NULL,
+  balance numeric NULL,
+  uid bigint NOT NULL,
+  date_added bigint NULL
+);
+
+
+
+CREATE TABLE public.sb_user (
+  full_name character varying NULL,
+  password character varying NULL,
+  balance numeric NULL,
+  uid bigint NOT NULL,
+  date_added bigint NULL
+);
