@@ -10,16 +10,16 @@ Welcome to the su18-202-t3am wiki!
 ## Important Links
 ### Sprint board in google sheet
 Please update your task here....
-https://docs.google.com/spreadsheets/d/1pfwGInHH9siD7P3Q7gQIALwi6-xfxB6CuSd0tBX_e3c/edit?usp=sharing
+- https://docs.google.com/spreadsheets/d/1pfwGInHH9siD7P3Q7gQIALwi6-xfxB6CuSd0tBX_e3c/edit?usp=sharing
 
 ### Github link...
-https://github.com/nguyensjsu/su18-202-t3am
+- https://github.com/nguyensjsu/su18-202-t3am
 
 ### How to set up project locally
-https://docs.google.com/document/d/1YKTlsn7VnxUjwjOXPiQigHKz-usWgbWOH0NESBkKrKk/edit?usp=sharing
+- https://docs.google.com/document/d/1YKTlsn7VnxUjwjOXPiQigHKz-usWgbWOH0NESBkKrKk/edit?usp=sharing
 
 ### EC2 Demo Server
-http://ec2-34-192-241-153.compute-1.amazonaws.com:8202/api/v1/cards?uid=1
+- http://ec2-34-192-241-153.compute-1.amazonaws.com:8202/api/v1/cards?uid=1
 
 
 
