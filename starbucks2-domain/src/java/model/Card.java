@@ -15,13 +15,13 @@ public class Card {
     String code = "000";
     double balance = 0;
     long date_added = 0;
-    long uid;
+    String uid;
 
-    public long getUid() {
+    public String getUid() {
         return uid;
     }
 
-    public void setUid(long uid) {
+    public void setUid(String uid) {
         this.uid = uid;
     }
 
