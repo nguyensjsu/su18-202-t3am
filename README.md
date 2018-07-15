@@ -24,13 +24,28 @@ Please update your task here....
 
 
 ## Sample Curl / Demo
-Get Cards by UserId
+### Get Cards by UserId
+#### Curl Sample
 ```
 curl -X GET \
   'http://localhost:8202/api/v1/cards?uid=2c60158e-d432-4b78-a300-360cc6fa7260'
 ```
 
-Create User
+#### Response
+```
+[
+  {
+    "number": "123456789",
+    "code": "321",
+    "balance": 20,
+    "date_added": 1524958728440,
+    "uid": "2c60158e-d432-4b78-a300-360cc6fa7260"
+  }
+]
+```
+
+### Create User
+#### Curl Sample
 ```
 curl -X POST \
   http://localhost:8202/api/v1/signup \
@@ -42,6 +57,18 @@ curl -X POST \
   "password": "password"
 }'
 ```
+
+#### Response
+```
+{
+    "number": "123456789",
+    "code": "321",
+    "balance": 20,
+    "date_added": 1524958728440,
+    "uid": "2c60158e-d432-4b78-a300-360cc6fa7260"
+}
+```
+
 
 
 
