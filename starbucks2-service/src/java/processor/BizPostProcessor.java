@@ -5,9 +5,11 @@ import dao.CardImpl;
 import helper.JSONHelper;
 import model.Card;
 
-public class BizPostProcessor extends PostProcessor {
+import java.util.Map;
+
+public class BizPostProcessor extends HttpProcessor {
     @Override
-    String handle() throws Exception {
+    String handle(final Map<String, Object> map) throws Exception {
 
         BaseDao dao;
 

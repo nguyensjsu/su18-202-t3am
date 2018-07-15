@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-abstract class PostProcessor implements Processor {
+abstract class HttpProcessor implements Processor {
 
     protected String body = "";
     protected String path = null;
@@ -25,37 +25,46 @@ abstract class PostProcessor implements Processor {
             body = "";
             paramMap = new HashMap<>();
 
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                body += line;
+            if(inputStream != null) {
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    body += line;
+                }
+                body = body.trim();
             }
-            body = body.trim();
 
             if(exchange.getIn().getHeader("path") != null) {
                 path = exchange.getIn().getHeader("path") + "";
             }
-            String params = exchange.getIn().getHeader("CamelHttpQuery") + "";
-            if(StringUtils.isNotBlank(params) && !"null".equalsIgnoreCase(params)) {
-                paramMap = Arrays.stream(params.split("&")).map(s -> s.split("=")).collect(Collectors.toMap(a -> a[0], a -> a[1]));
+
+            if(exchange.getIn().getHeader("CamelHttpQuery") != null) {
+                String params = exchange.getIn().getHeader("CamelHttpQuery") + "";
+                if (StringUtils.isNotBlank(params) && !"null".equalsIgnoreCase(params)) {
+                    paramMap = Arrays.stream(params.split("&")).map(s -> s.split("=")).collect(Collectors.toMap(a -> a[0], a -> a[1]));
+                }
             }
 
-            String resp = handle();
-
-            exchange.getOut().setBody(resp);
-            Map<String, Object> map = new HashMap();
+            Map<String, Object> map = new HashMap<>();
             map.put( "Access-Control-Allow-Origin","*" );
             map.put( "Access-Control-Allow-Methods","*" );
+            map.put( "Content-Type", "application/json; charset=UTF-8" );
+
+            String resp = handle(map);
+
+            exchange.getOut().setBody(resp);
             exchange.getOut().setHeaders(map);
 
         } catch (Throwable e) {
             e.printStackTrace();
             exchange.getOut().setBody(e.getMessage());
         } finally {
-            inputStream.close();
+            if(inputStream != null) {
+                inputStream.close();
+            }
         }
     }
 
-    abstract String handle() throws Exception;
+    abstract String handle(final Map<String, Object> map) throws Exception;
 }
 

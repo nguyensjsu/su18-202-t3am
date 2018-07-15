@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Map;
 import model.UserProfile;
 
-public class BizGetProcessor extends GetProcessor {
+public class BizGetProcessor extends HttpProcessor {
 
     @Override
-    Object handle(final Map<String, Object> map) throws Exception {
+    String handle(final Map<String, Object> map) throws Exception {
 
         BaseDao dao;
 

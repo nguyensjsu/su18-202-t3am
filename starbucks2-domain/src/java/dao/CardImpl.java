@@ -18,7 +18,7 @@ public class CardImpl extends BasePOJO implements CardDao {
     @Override
     public List<Card> list(String kw) throws Exception {
         SqlSession s = client.openSession(true);
-        List<Card> ret = s.selectList("ns.card.list", Long.valueOf(kw));
+        List<Card> ret = s.selectList("ns.card.list", kw);
         s.close();
         return ret;
     }
