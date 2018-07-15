@@ -147,10 +147,13 @@ e. add new purchase (refer to the above api for input)
 - [X] User Signup (Sy)
 - [ ] User Signin (Sy)
 - [ ] User Signout (Sy)
-- [ ] Create Card / Reload (TBD)
-- [ ] Create Purchase / Payment (TBD)
-- [X] Get Cards by uid (Lin) 
-- [] Get Purchase by uid (TBD)
+- [ ] Get User Info by UserID (Sy)
+- [X] Create Card / Reload (Lin)
+- [ ] Create Purchase / Payment (Hyunwook)
+- [X] Get All Transactions (Cards & Purchase) by uid (Hyunwook) 
+  - [X] Get Cards by uid (Lin) 
+  - [ ] Get Purchase by uid (Kevin)
+
 
 ### Testings / Misc
 - [ ] Unit Tests
