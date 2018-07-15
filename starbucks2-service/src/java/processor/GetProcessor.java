@@ -27,6 +27,8 @@ abstract class GetProcessor implements Processor {
         Map<String, Object> map = new HashMap<>();
         map.put( "Access-Control-Allow-Origin","*" );
         map.put( "Access-Control-Allow-Methods","*" );
+        map.put( "Content-Type", "application/json; charset=UTF-8" );
+        
 
         Object resp = handle(map);
 
