@@ -1,26 +1,18 @@
 CREATE TABLE sb_card (
-  uid bigint NOT NULL,
+  uid character varying NOT NULL,
   number character varying NULL,
   code character varying NULL,
   balance numeric NULL,
   date_added bigint NULL
 );
 
-CREATE SEQUENCE user_id_seq;
 
 CREATE TABLE sb_user (
-  uid bigint NOT NULL DEFAULT nextval('user_id_seq'),
+  uid character varying NOT NULL,
   email character varying NULL,
   full_name character varying NULL,
   password character varying NULL,
   balance numeric NULL,
   date_added bigint NULL
 );
-
-ALTER SEQUENCE user_id_seq OWNED BY sb_user.uid;
-
 ALTER TABLE sb_user ADD UNIQUE (email);
-
-
--- DROP TABLE sb_user;
--- DROP SEQUENCE user_id_seq;

@@ -34,6 +34,7 @@ public class BizPostProcessor extends HttpProcessor {
                 
                 // generate the uid and current timestamp
                 u.setBalance(0.0);
+                u.setUid(UUIDHelper.getRandomUUID());
                 u.setDate_added(DateHelper.getCurrentEpochTimestamp());
                 
                 
