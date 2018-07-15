@@ -12,20 +12,20 @@ package model;
 public class Purchase {
     String uid;
     long date_added = 0;
-    double balance = 0;
-    String note; // purchase note
+    double balance = 0.0;
+    String note = ""; // purchase note. Default: empty string, in the event that user does not enter any note.
     // this is a long and lat used for the store position
-    double latPostion;
-    double longPosition;
+    double latPostion = 0.0;
+    double longPosition = 0.0;
 
     public Purchase() {
     }
-    
+
     public Purchase(double balance, String note) {
         this.balance = balance;
         this.note = note;
     }
-    
+
     public String getUid() {
         return uid;
     }

@@ -2,6 +2,7 @@ package processor;
 
 import dao.BaseDao;
 import dao.CardImpl;
+import dao.PurchaseImpl;
 import dao.UserProfileImpl;
 import helper.DateHelper;
 import helper.JSONHelper;
@@ -27,10 +28,10 @@ public class BizPostProcessor extends HttpProcessor {
                 return JSONHelper.toJson(c);
                 
             case "purchase":
-                // User ID and balance (or the cost of the order) will be from the body
+                // User ID, balance(or the cost of the order), and purchase location will be from the body
                 Purchase p = JSONHelper.fromJson2(body, Purchase.class);
                 p.setDate_added(DateHelper.getCurrentEpochTimestamp());
-                dao = new CardImpl();
+                dao = new PurchaseImpl();
                 dao.create(p);
                 return JSONHelper.toJson(p);
                 
