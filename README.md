@@ -15,6 +15,14 @@ https://docs.google.com/spreadsheets/d/1pfwGInHH9siD7P3Q7gQIALwi6-xfxB6CuSd0tBX_
 ### Github link...
 https://github.com/nguyensjsu/su18-202-t3am
 
+### How to set up project locally
+https://docs.google.com/document/d/1YKTlsn7VnxUjwjOXPiQigHKz-usWgbWOH0NESBkKrKk/edit?usp=sharing
+
+### EC2 Demo Server
+http://ec2-34-192-241-153.compute-1.amazonaws.com:8202/api/v1/cards?uid=1
+
+
+
 
 ## 07/14/2018 - Update
 ### Dependencies
