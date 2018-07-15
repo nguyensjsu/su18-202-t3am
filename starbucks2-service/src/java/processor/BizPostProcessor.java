@@ -3,6 +3,7 @@ package processor;
 import dao.BaseDao;
 import dao.CardImpl;
 import dao.UserProfileImpl;
+import helper.DateHelper;
 import helper.JSONHelper;
 import model.Card;
 import model.UserProfile;
@@ -31,7 +32,9 @@ public class BizPostProcessor extends HttpProcessor {
                 UserProfile u = JSONHelper.fromJson2(body, UserProfile.class);
                 
                 // generate the uid
-                u.setUid(2);
+                u.setUid(3);
+                u.setBalance(0.0);
+                u.setDate_added(DateHelper.getCurrentEpochTimestamp());
                 
                 
                 dao = new UserProfileImpl();

@@ -5,10 +5,15 @@
  */
 package helper;
 
+import java.time.Instant;
+
 /**
  *
  * @author syle
  */
 public class DateHelper {
-    
+    public static long getCurrentEpochTimestamp(){
+        long now = Instant.now().toEpochMilli();
+        return now;
+    }
 }

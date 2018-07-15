@@ -10,5 +10,7 @@ package helper;
  * @author syle
  */
 public class UUIDHelper {
-    
+    public static String getRandomUUID(){
+        return "random_uuid";
+    }
 }
