@@ -70,21 +70,7 @@ curl -X POST \
 ```
 
 
-
-
-## 07/14/2018 - Update
-### Dependencies
-- [ ] Set up AWS Dynamo DB (for NoSQL) to persist data. 2 instances: 1 for prod and 1 for dev.
-- [ ] Set up the pipeline for webapp (AWS Beanstalk) includes the domain and basic hello world api.
-- [ ] [Nice to have]. Set up CI/CD pipeline for the above webapp/noSQL in the github repo...
-
-### Desired Extra Credit Sections
-- [X] Implement a "real" iOS or Android Mobile App calling the REST API
-- [ ] Deploy API to AWS in an Auto Scaled EC2 Cluster with Load Balancer
-- [ ] Deploy API to AWS as Docker Containers in Amazon Containers
-- [ ] Deploy API to AWS as Docker Containers in Amazon EKS
-- [X] Implement Web "Front-End" Deployed to Heroku for Starbucks Payment Card management
-
+## API Contract
 ### Task Breakdown
 #### Core business logic jar
 Business logics will be bundled as a jar to be used inside the rest api app (either Spring Boot or Jersey)
@@ -129,3 +115,30 @@ b. landing page to show your user_id and current balance
 c. transaction list
 d. add new card (reload) (refer to the above api for input)
 e. add new purchase (refer to the above api for input)
+
+
+
+
+
+
+## Sprint Updates
+### 07/15/2018
+- Initial Code complete, Server is now Up and Running
+- Created 2 AWS EC instances for prod and dev
+- Created AWS RDS for data store
+- Functional getCards API
+- Functional signUp API
+- Basic plumbing works for POJO Objects such as `Purchase`, `UserProfile`, `Card`
+
+### 07/14/2018
+#### Dependencies
+- [ ] Set up AWS Dynamo DB (for NoSQL) to persist data. 2 instances: 1 for prod and 1 for dev.
+- [ ] Set up the pipeline for webapp (AWS Beanstalk) includes the domain and basic hello world api.
+- [ ] [Nice to have]. Set up CI/CD pipeline for the above webapp/noSQL in the github repo...
+
+#### Desired Extra Credit Sections
+- [X] Implement a "real" iOS or Android Mobile App calling the REST API
+- [ ] Deploy API to AWS in an Auto Scaled EC2 Cluster with Load Balancer
+- [ ] Deploy API to AWS as Docker Containers in Amazon Containers
+- [ ] Deploy API to AWS as Docker Containers in Amazon EKS
+- [X] Implement Web "Front-End" Deployed to Heroku for Starbucks Payment Card management
