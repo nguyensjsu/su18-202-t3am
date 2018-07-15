@@ -5,10 +5,12 @@
  */
 package dao;
 
+import model.Purchase;
+
 /**
  *
  * @author syle
  */
-public interface PurchaseDao extends BaseDao{
+public interface PurchaseDao extends BaseDao<Purchase>{
     
 }
