@@ -152,7 +152,7 @@ e. add new purchase (refer to the above api for input)
 - [ ] Create Purchase / Payment (Hyunwook)
 - [X] Get All Transactions (Cards & Purchase) by uid (Hyunwook) 
   - [X] Get Cards by uid (Lin) 
-  - [ ] Get Purchase by uid (Kevin)
+  - [X] Get Purchase by uid (Kevin)
 
 
 ### Testings / Misc
