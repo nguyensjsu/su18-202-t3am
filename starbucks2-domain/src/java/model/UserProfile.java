@@ -10,5 +10,53 @@ package model;
  * @author syle
  */
 public class UserProfile {
+    long uid;
+    double balance;
+    String fullName;
+    String password;
+    long date_added = 0; // created since (used for member joined date)
+
+    public long getUid() {
+        return uid;
+    }
+
+    public void setUid(long uid) {
+        this.uid = uid;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public long getDate_added() {
+        return date_added;
+    }
+
+    public void setDate_added(long date_added) {
+        this.date_added = date_added;
+    }
+
+    
+    
     
 }

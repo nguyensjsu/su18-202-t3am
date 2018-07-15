@@ -9,6 +9,6 @@ package dao;
  *
  * @author syle
  */
-public interface UserProfileDao extends BaseDao{
-
+public interface PurchaseDao extends BaseDao{
+    
 }
