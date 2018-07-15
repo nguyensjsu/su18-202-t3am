@@ -54,7 +54,7 @@ public class Purchase {
         return latPostion;
     }
 
-    public void setLatPostion(long latPostion) {
+    public void setLatPostion(double latPostion) {
         this.latPostion = latPostion;
     }
 
@@ -62,7 +62,7 @@ public class Purchase {
         return longPosition;
     }
 
-    public void setLongPosition(long longPosition) {
+    public void setLongPosition(double longPosition) {
         this.longPosition = longPosition;
     }
     
