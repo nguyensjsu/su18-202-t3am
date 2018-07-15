@@ -33,7 +33,7 @@ curl -X GET \
 Create User
 ```
 curl -X POST \
-  http://localhost:8202/api/v1/card \
+  http://localhost:8202/api/v1/signup \
   -H 'accept: application/json' \
   -H 'cache-control: no-cache' \
   -d '{

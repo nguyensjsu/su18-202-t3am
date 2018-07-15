@@ -10,19 +10,19 @@ package model;
  * @author syle
  */
 public class UserProfile {
-    String uid;
+    String user_id;
     double balance;
     String email;
     String full_name;
     String password;
     long date_added = 0; // created since (used for member joined date)
 
-    public String getUid() {
-        return uid;
+    public String getUser_id() {
+        return user_id;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 
     public double getBalance() {
@@ -65,5 +65,6 @@ public class UserProfile {
         this.date_added = date_added;
     }
 
+    
     
 }

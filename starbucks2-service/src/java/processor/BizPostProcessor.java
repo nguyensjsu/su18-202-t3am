@@ -34,13 +34,13 @@ public class BizPostProcessor extends HttpProcessor {
                 
                 // generate the uid and current timestamp
                 u.setBalance(0.0);
-                u.setUid(UUIDHelper.getRandomUUID());
+                u.setUser_id(UUIDHelper.getRandomUUID());
                 u.setDate_added(DateHelper.getCurrentEpochTimestamp());
                 
                 
                 dao = new UserProfileImpl();
                 dao.create(u);
-                return "User Successfully Created";
+                return JSONHelper.toJson(u);
                 
             case "signin":
                 // add code here

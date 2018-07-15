@@ -8,7 +8,7 @@ CREATE TABLE sb_card (
 
 
 CREATE TABLE sb_user (
-  uid character varying NOT NULL,
+  user_id character varying NOT NULL,
   email character varying NULL,
   full_name character varying NULL,
   password character varying NULL,
