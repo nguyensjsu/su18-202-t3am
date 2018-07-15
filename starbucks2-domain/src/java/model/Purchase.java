@@ -15,8 +15,8 @@ public class Purchase {
     double balance;
     String note; // purchase note
     // this is a long and lat used for the store position
-    long latPostion;
-    long longPosition;
+    double latPostion;
+    double longPosition;
 
     public long getUid() {
         return uid;
@@ -50,7 +50,7 @@ public class Purchase {
         this.note = note;
     }
 
-    public long getLatPostion() {
+    public double getLatPostion() {
         return latPostion;
     }
 
@@ -58,7 +58,7 @@ public class Purchase {
         this.latPostion = latPostion;
     }
 
-    public long getLongPosition() {
+    public double getLongPosition() {
         return longPosition;
     }
 

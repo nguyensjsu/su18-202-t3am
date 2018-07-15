@@ -7,6 +7,7 @@ import helper.DateHelper;
 import helper.JSONHelper;
 import helper.UUIDHelper;
 import model.Card;
+import model.Purchase;
 import model.UserProfile;
 
 import java.util.Map;
@@ -26,8 +27,12 @@ public class BizPostProcessor extends HttpProcessor {
                 return JSONHelper.toJson(c);
                 
             case "purchase":
-                // add code here to do purchase
-                return "purchase";
+                // User ID and balance (or the cost of the order) will be from the body
+                Purchase p = JSONHelper.fromJson2(body, Purchase.class);
+                p.setDate_added(DateHelper.getCurrentEpochTimestamp());
+                dao = new CardImpl();
+                dao.create(p);
+                return JSONHelper.toJson(p);
                 
             case "signup":
                 UserProfile u = JSONHelper.fromJson2(body, UserProfile.class);
