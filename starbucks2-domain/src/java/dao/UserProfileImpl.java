@@ -6,31 +6,36 @@
 package dao;
 
 import java.util.List;
+import model.UserProfile;
+import org.apache.ibatis.session.SqlSession;
 
 /**
  *
  * @author syle
  */
-public class UserProfileImpl implements UserProfileDao{
+public class UserProfileImpl  extends BasePOJO implements UserProfileDao {
+    @Override
+    public UserProfile create(UserProfile o) throws Exception {
+        SqlSession s = client.openSession(true);
+        s.insert("ns.user_profile.create", o);
+        s.close();
+        return o;
+    }
 
     @Override
-    public Object create(Object o) throws Exception {
+    public UserProfile update(UserProfile o) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Object update(Object o) throws Exception {
+    public UserProfile find(String key) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Object find(String key) throws Exception {
+    public List<UserProfile> list(String kw) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public List list(String kw) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+
 }

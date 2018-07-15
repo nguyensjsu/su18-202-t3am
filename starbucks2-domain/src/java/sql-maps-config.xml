@@ -21,6 +21,7 @@
     </environments>
     <mappers>
         <mapper resource="card.xml" />
+        <mapper resource="user-profile.xml" />
     </mappers>
 
 </configuration>

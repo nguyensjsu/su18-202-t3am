@@ -5,10 +5,6 @@
 
 <mapper namespace="ns.user_profile">
 
-    <select id="list" resultType="CARD">
-        SELECT * FROM sb_users WHERE uid = #{value}
-    </select>
-
     <insert id="create" parameterType="CARD">
         INSERT INTO sb_users (uid, balance, fullName, password, date_added)
         VALUES(#(uid), #(balance), #(fullName), #(password), #(date_added));

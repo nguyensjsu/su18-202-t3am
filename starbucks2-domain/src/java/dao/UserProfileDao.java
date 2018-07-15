@@ -5,10 +5,12 @@
  */
 package dao;
 
+import model.UserProfile;
+
 /**
  *
  * @author syle
  */
-public interface UserProfileDao extends BaseDao{
+public interface UserProfileDao extends BaseDao<UserProfile>{
 
 }
