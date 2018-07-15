@@ -2,8 +2,12 @@ package processor;
 
 import dao.BaseDao;
 import dao.CardImpl;
+import dao.UserProfileImpl;
+import helper.DateHelper;
 import helper.JSONHelper;
+import helper.UUIDHelper;
 import model.Card;
+import model.UserProfile;
 
 import java.util.Map;
 
@@ -24,6 +28,19 @@ public class BizPostProcessor extends HttpProcessor {
             case "purchase":
                 // add code here to do purchase
                 return "purchase";
+                
+            case "signup":
+                UserProfile u = JSONHelper.fromJson2(body, UserProfile.class);
+                
+                // generate the uid and current timestamp
+                u.setBalance(0.0);
+                u.setUser_id(UUIDHelper.getRandomUUID());
+                u.setDate_added(DateHelper.getCurrentEpochTimestamp());
+                
+                
+                dao = new UserProfileImpl();
+                dao.create(u);
+                return JSONHelper.toJson(u);
                 
             case "signin":
                 // add code here

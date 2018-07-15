@@ -10,18 +10,19 @@ package model;
  * @author syle
  */
 public class UserProfile {
-    long uid;
+    String user_id;
     double balance;
-    String fullName;
+    String email;
+    String full_name;
     String password;
     long date_added = 0; // created since (used for member joined date)
 
-    public long getUid() {
-        return uid;
+    public String getUser_id() {
+        return user_id;
     }
 
-    public void setUid(long uid) {
-        this.uid = uid;
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 
     public double getBalance() {
@@ -32,12 +33,20 @@ public class UserProfile {
         this.balance = balance;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getEmail() {
+        return email;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getFull_name() {
+        return full_name;
+    }
+
+    public void setFull_name(String full_name) {
+        this.full_name = full_name;
     }
 
     public String getPassword() {
@@ -56,7 +65,6 @@ public class UserProfile {
         this.date_added = date_added;
     }
 
-    
     
     
 }
