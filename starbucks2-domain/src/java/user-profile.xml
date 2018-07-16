@@ -11,7 +11,11 @@
     </insert>
 
     <select id="find" resultType="USERPROFILE">
-        SELECT * FROM sb_user WHERE user_id = #{value}
+        SELECT * FROM sb_user WHERE user_id = #{value} LIMIT 1
+    </select>
+
+    <select id="list" resultType="USERPROFILE">
+        SELECT * FROM sb_user
     </select>
 
 </mapper>
