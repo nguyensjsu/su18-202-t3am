@@ -7,6 +7,7 @@ NEW_PASSWD ?= $(DUMMY_PASSWD)
 
 clean:
 	mvn clean
+	$(MAKE) -C jenkins clean
 
 populate:
 	sed -i "s/value=\"$(DUMMY_PASSWD)\"/value=\"$(NEW_PASSWD)\"/g" starbucks2-domain/src/java/sql-maps-config.xml
@@ -17,8 +18,11 @@ unpopulate:
 install: clean
 	mvn install
 
-test: install
+test-junit: install
 	mvn test
 
 run: install
 	java -cp starbucks2-service/target/starbucks2-service-$(VERSION).jar RestService
+
+test: test-junit
+	$(MAKE) -C jenkins test
