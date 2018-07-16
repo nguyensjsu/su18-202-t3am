@@ -184,7 +184,28 @@
 
 
   function _doOpenNewCard(){
-    alert('add new card')
+    $('#dialog-add-card').dialog({
+      resizable: false,
+      height: "auto",
+      width: 600,
+      modal: true,
+      close: function(){
+        // reset the form...
+        $('#form-add-card #txtUserID').val('');
+        $('#form-add-card #txtEmail').val('');
+        $('#form-add-card #txtCardId').val('');
+        $('#form-add-card #txtCardCode').val('');
+        $('#form-add-card #txtCardBalance').val('');
+      },
+      buttons: {
+        "Save": function() {
+          $( this ).dialog( "close" );
+        },
+        "Cancel": function() {
+          $( this ).dialog( "close" );
+        }
+      },
+    });
   }
 
   function _doNewCard(req){
