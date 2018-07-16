@@ -22,6 +22,7 @@
     </environments>
     <mappers>
         <mapper resource="card.xml" />
+		<mapper resource="purchase.xml" />
         <mapper resource="user-profile.xml" />
     </mappers>
 

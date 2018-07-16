@@ -6,6 +6,12 @@ CREATE TABLE sb_card (
   date_added bigint NULL
 );
 
+CREATE TABLE sb_purchase (
+  uid character varying NOT NULL,
+  balance numeric NULL,
+  note character varying NULL,
+  date_added bigint NULL
+);
 
 CREATE TABLE sb_user (
   user_id character varying NOT NULL,
