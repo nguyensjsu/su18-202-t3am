@@ -19,6 +19,7 @@ ALTER TABLE sb_user ADD UNIQUE (email);
 create table sb_purchase (
   purchase_id BIGSERIAL NOT NULL primary key,
   uid varchar UNIQUE,
+  email varchar unique,
   change int DEFAULT 0,
   date_committed bigint,
   note varchar
