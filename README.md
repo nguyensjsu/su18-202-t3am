@@ -150,8 +150,8 @@ e. add new purchase (refer to the above api for input)
 
 ### API Work
 - [X] User Signup (Sy)
-- [ ] User Signin (Sy)
-- [ ] User Signout (Sy)
+- [X] User Signin (Hyunwook)
+- [X] User Signout (Hyunwook)
 - [ ] Get User Info by UserID (Sy)
 - [X] Create Card / Reload (Lin)
 - [ ] Create Purchase / Payment (Hyunwook)
