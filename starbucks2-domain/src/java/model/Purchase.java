@@ -41,7 +41,7 @@ public class Purchase {
     }
 
     public void setEmail(String email) {
-        this.uid = uid;
+        this.email = email;
     }	
 	
 	public long getPurchase_id() {
@@ -49,7 +49,7 @@ public class Purchase {
     }
 
     public void setPurchase_id(long purchase_id) {
-        this.uid = uid;
+        this.purchase_id = purchase_id;
     }
 	
     public long getDate_added() {
