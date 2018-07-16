@@ -142,6 +142,15 @@ e. add new purchase (refer to the above api for input)
 
 
 ## Sprint Updates
+### 07/16/2018
+- Completed API to sign in using `email` and `password`
+- Deployed our API Back End to heroku: http://cmpe202-java-rest-api.herokuapp.com
+- Continued BE and FE (webapp)integration work: authentication (signin / signup) flow
+- Parametrized Database Connection Strings, App Host, App Port into environment for deployment.
+- Fixed UserProfile Fetch API to return real data instead of mocks
+- WIP - CI/CD pipeline with jenkins
+- WIP - Plumbing up unit tests
+
 ### 07/15/2018
 - Initial Code complete, Server is now Up and Running
 - Created 2 AWS EC instances for prod and dev
