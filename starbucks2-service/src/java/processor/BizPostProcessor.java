@@ -6,6 +6,7 @@ import helper.UUIDHelper;
 import model.Card;
 import model.Purchase;
 import model.UserProfile;
+import model.AuthRequest;
 
 import java.util.Map;
 
@@ -37,8 +38,11 @@ public class BizPostProcessor extends HttpProcessor {
                 return JSONHelper.toJson(u);
                 
             case "signin":
-                // add code here
-                return "signin";
+                AuthRequest a = JSONHelper.fromJson2(body, AuthRequest.class);
+                UserProfile up = userProfileDao.find(a.getUserId());
+                if (a.authenticate(up))
+                   return "{\"status\" : \"authenticated\"}";
+                return "{\"status\" : \"failed\"}";
                 
             case "signout":
                 // add code here

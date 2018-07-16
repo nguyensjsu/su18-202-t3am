@@ -10,4 +10,8 @@
         VALUES(#{user_id}, #{email}, #{balance}, #{full_name}, #{password}, #{date_added});
     </insert>
 
+    <select id="find" resultType="USERPROFILE">
+        SELECT * FROM sb_user WHERE user_id = #{value}
+    </select>
+
 </mapper>

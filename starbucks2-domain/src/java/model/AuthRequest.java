@@ -10,7 +10,7 @@ package model;
 
 public class AuthRequest {
 
-   String user_id;
+   String uid;
    String password;
    boolean authenticated = false;
 
@@ -25,5 +25,9 @@ public class AuthRequest {
 
    public boolean isAuthenticated() {
       return authenticated;
+   }
+
+   public String getUserId() {
+      return uid;
    }
 }

@@ -64,7 +64,4 @@ public class UserProfile {
     public void setDate_added(long date_added) {
         this.date_added = date_added;
     }
-
-    
-    
 }
