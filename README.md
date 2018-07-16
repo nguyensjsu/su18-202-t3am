@@ -18,9 +18,14 @@ Please update your task here....
 ### How to set up project locally
 - https://docs.google.com/document/d/1YKTlsn7VnxUjwjOXPiQigHKz-usWgbWOH0NESBkKrKk/edit?usp=sharing
 
-### EC2 Demo Server
-- http://ec2-34-192-241-153.compute-1.amazonaws.com:8202/api/v1/cards?uid=1
+### Demo Envs
+#### Staging Env
+- api: http://ec2-34-192-241-153.compute-1.amazonaws.com:8202/api/v1/cards?uid=1
+- webapp: https://cmpe202-t3am-starbucks-webapp.herokuapp.com/
 
+### Prod Env
+- api: TBD
+- webapp: TBD
 
 
 ## Sample Curl / Demo
@@ -150,8 +155,8 @@ e. add new purchase (refer to the above api for input)
 - [ ] Get User Info by UserID (Sy)
 - [X] Create Card / Reload (Lin)
 - [ ] Create Purchase / Payment (Hyunwook)
-- [X] Get All Transactions (Cards & Purchase) by uid (Hyunwook) 
-  - [X] Get Cards by uid (Lin) 
+- [X] Get All Transactions (Cards & Purchase) by uid (Hyunwook)
+  - [X] Get Cards by uid (Lin)
   - [X] Get Purchase by uid (Kevin)
 
 
