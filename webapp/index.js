@@ -51,7 +51,6 @@
           })
         }
       )
-        .then(res => res.json())
         .catch(reject)
         .then(resolve);
     });
@@ -59,7 +58,14 @@
 
     promiseAjax.then((resp) =>{
       debugger;
+      try{
+        resp = JSON.parse(resp);
+        alert(resp);
+      } catch(e){
+        throw 'Server Bad Request '
+      }
     }).catch((err) => {
+      debugger;
       alert(`
         Cannot create your account because
 
@@ -130,7 +136,6 @@
           }
         }
       )
-        .then(res => res.json())
         .catch(reject)
         .then(resolve);
     });
@@ -148,7 +153,19 @@
       referrer: "no-referrer",
     }, b);
 
-    return fetch(a, b, c);
+    return new Promise((resolve, reject) => {
+      fetch(a, b, c)
+        .then(res => res.text())
+        .then(res => {
+          try{
+            return Promise.resolve(JSON.parse(res));
+          } catch(e){
+            return Promise.resolve(res);
+          }
+        })
+        .then(resolve)
+        .catch(reject)
+    })
   }
 
 
@@ -181,7 +198,6 @@
           url,
           {} // extra request params...
         )
-          .then(res => res.json())
           .catch(reject)
           .then(resolve);
       });
@@ -227,7 +243,6 @@
           url,
           {} // extra request params...
         )
-          .then(res => res.json())
           .catch(reject)
           .then(resolve);
       });
