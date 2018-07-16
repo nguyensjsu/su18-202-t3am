@@ -22,3 +22,12 @@ CREATE TABLE sb_user (
   date_added bigint NULL
 );
 ALTER TABLE sb_user ADD UNIQUE (email);
+
+create table sb_purchase (
+  purchase_id BIGSERIAL NOT NULL primary key,
+  uid varchar UNIQUE,
+  change int DEFAULT 0,
+  date_committed bigint,
+  note varchar
+);
+ALTER tABLE sb_purchase ADD CONSTRAINT sb_purchase_sb_user FOREIGN KEY (email) REFERENCES sb_user(email);
