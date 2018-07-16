@@ -268,7 +268,11 @@
       });
     }
 
-    $(listEl).empty();
+    $(listEl).html(`
+      <tr>
+        <td colspan="4">Loading...</td>
+      </tr>
+    `);
 
     promiseAjax.then(function(resp){
       if(resp.length === 0){
@@ -276,7 +280,7 @@
       }
 
       // [{"number":"123456789","code":"321","balance":20.0,"date_added":1524958728440,"uid":"2c60158e-d432-4b78-a300-360cc6fa7260"}]
-
+      $(listEl).empty();
       resp.forEach(function(item){
         $(`
           <tr>
@@ -288,11 +292,11 @@
           `).appendTo(listEl)
       })
     }).catch(() => {
-      $(`
+      $(listEl).html(`
         <tr>
           <td colspan="4">No Result</td>
         </tr>
-        `).appendTo(listEl)
+      `)
     });
   }
 
@@ -315,7 +319,11 @@
       });
     }
 
-    $(listEl).empty();
+    $(listEl).html(`
+      <tr>
+        <td colspan="4">Loading...</td>
+      </tr>
+    `);
 
     promiseAjax.then(function(resp){
       if(resp.length === 0){
@@ -323,6 +331,8 @@
       }
 
       // [{"number":"123456789","code":"321","balance":20.0,"date_added":1524958728440,"uid":"2c60158e-d432-4b78-a300-360cc6fa7260"}]
+
+      $(listEl).empty();
 
       resp.forEach(function(item){
         $(`
@@ -335,11 +345,11 @@
           `).appendTo(listEl)
       })
     }).catch(() => {
-      $(`
+      $(listEl).html(`
         <tr>
           <td colspan="4">No Result</td>
         </tr>
-        `).appendTo(listEl)
+      `)
     });
   }
 })()

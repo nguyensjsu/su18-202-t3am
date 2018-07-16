@@ -61,13 +61,13 @@
           <li><a href="#tabs-3">Purchases History</a></li>
         </ul>
         <div id="tabs-1">
-          <div>
+          <div style="margin-bottom:25px">
             <button class="btn btn-lg btn-default" onclick="window.doOpenNewCard()">New Card</button>
             <button class="btn btn-lg btn-default" onclick="window.doOpenNewPurchase()">New Purchase</button>
             <button class="btn btn-lg btn-default" onclick="window.logoff()">Log Out</button>
           </div>
 
-          <div style="margin-top:25px">
+          <div>
             <form id="form-user-info" onsubmit="return false;">
               <div class="form-group">
                 <label for="txtUserID">User ID</label>
@@ -85,6 +85,10 @@
           </div>
         </div>
         <div id="tabs-2">
+          <div style="margin-bottom:25px">
+            <button class="btn btn-lg btn-default" onclick="window.refresh()">Refresh</button>
+          </div>
+
           <table class="table">
             <thead>
               <tr>
@@ -98,6 +102,10 @@
           </table>
         </div>
         <div id="tabs-3">
+          <div style="margin-bottom:25px">
+            <button class="btn btn-lg btn-default" onclick="window.refresh()">Refresh</button>
+          </div>
+
           <table class="table">
             <thead>
               <tr>
@@ -116,6 +124,10 @@
 
 
   <div id="dialog-add-card" title="Add New Card" style="display:none">
+    <div style="margin-bottom:25px">
+      <button class="btn btn-lg btn-default" onclick="window.refresh()">Refresh</button>
+    </div>
+
     <form id="form-add-card" onsubmit="return false;">
       <div class="form-group">
         <label for="txtUserID">User ID</label>
