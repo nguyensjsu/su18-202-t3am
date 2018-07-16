@@ -6,7 +6,6 @@
 
     <typeAliases>
         <typeAlias type="model.Card" alias="CARD"/>
-        <typeAlias type="model.Purchase" alias="PURCHASE"/>
         <typeAlias type="model.UserProfile" alias="USERPROFILE"/>
         <typeAlias type="model.Purchase" alias="PURCHASE"/>
     </typeAliases>
