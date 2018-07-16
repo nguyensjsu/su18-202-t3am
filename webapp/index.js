@@ -69,8 +69,11 @@
         throw resp;
       }
 
+      localStorage['my_secure_token'] = user_id;
+      localStorage['my_user_id'] = user_id;
+
+      _onLoggedIn(resp);
     }).catch((err) => {
-      debugger;
       alert(`
         Cannot create your account because
 
@@ -88,7 +91,9 @@
   }
 
   // events...
-  function _onLoggedIn() {
+  function _onLoggedIn(auth_resp) {
+    data.user = auth_resp;
+
     // alert('Logging In');
 
     $('#page-login').hide();
@@ -147,8 +152,6 @@
   }
 
   function _makeApiCall(a, b, c){
-    debugger;
-
     b = Object.assign({
       mode: "cors",
       cache: "no-cache",
