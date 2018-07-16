@@ -44,7 +44,8 @@
       _makeApiCall(
         API_URL_USER_SIGNUP,
         {
-          data: JSON.stringify({
+          method: "POST",
+          body: JSON.stringify({
             email,
             full_name,
             password,
@@ -57,13 +58,17 @@
 
 
     promiseAjax.then((resp) =>{
-      debugger;
-      try{
-        resp = JSON.parse(resp);
-        alert(resp);
-      } catch(e){
-        throw 'Server Bad Request '
+      const {
+        user_id,
+        balance,
+        full_name,
+        date_added,
+      } = resp;
+
+      if(!user_id) {
+        throw resp;
       }
+
     }).catch((err) => {
       debugger;
       alert(`
@@ -142,6 +147,8 @@
   }
 
   function _makeApiCall(a, b, c){
+    debugger;
+
     b = Object.assign({
       mode: "cors",
       cache: "no-cache",
@@ -196,7 +203,9 @@
       promiseAjax = new Promise((resolve, reject) => {
         _makeApiCall(
           url,
-          {} // extra request params...
+          {
+            method: "GET",
+          } // extra request params...
         )
           .catch(reject)
           .then(resolve);
@@ -241,7 +250,9 @@
       promiseAjax = new Promise((resolve, reject) => {
         _makeApiCall(
           url,
-          {} // extra request params...
+          {
+            method: "GET",
+          } // extra request params...
         )
           .catch(reject)
           .then(resolve);
