@@ -17,38 +17,38 @@ import helper.JSONHelper;
 
 public class JSONHelperTest {
 
-    public JSONHelperTest() {
-    }
+    // public JSONHelperTest() {
+    // }
 
-    @Before
-    public void setUp() {
-       // todo expand
-    }
+    // @Before
+    // public void setUp() {
+    //    // todo expand
+    // }
 
-    @Test
-    public void FromJson2Test() throws Exception {
-       // todo expand
-       String json = "{ \"a\": 321, \"b\" : \"BB\"}";
-       DummyClass d = JSONHelper.fromJson2( json, DummyClass.class );
-       
-       assertEquals(321, d.getA());
-       assertEquals("BB", d.getB());
-    }
+    // @Test
+    // public void FromJson2Test() throws Exception {
+    //    // todo expand
+    //    String json = "{ \"a\": 321, \"b\" : \"BB\"}";
+    //    DummyClass d = JSONHelper.fromJson2( json, DummyClass.class );
 
-    @Test
-    public void FromJsonForObjList() throws Exception {
-       // todo expand
-       String json = "[{ \"a\": 321, \"b\" : \"BB\"}]";
-       List<DummyClass> lst = JSONHelper.fromJsonForObjList( json, DummyClass.class );
-       
-      for (DummyClass d : lst) {
-          assertEquals(321, d.getA());
-          assertEquals("BB", d.getB());
-       }
-    }
+    //    assertEquals(321, d.getA());
+    //    assertEquals("BB", d.getB());
+    // }
 
-    @After
-    public void tearDown() {
-       // todo expand
-    }
+    // @Test
+    // public void FromJsonForObjList() throws Exception {
+    //    // todo expand
+    //    String json = "[{ \"a\": 321, \"b\" : \"BB\"}]";
+    //    List<DummyClass> lst = JSONHelper.fromJsonForObjList( json, DummyClass.class );
+
+    //   for (DummyClass d : lst) {
+    //       assertEquals(321, d.getA());
+    //       assertEquals("BB", d.getB());
+    //    }
+    // }
+
+    // @After
+    // public void tearDown() {
+    //    // todo expand
+    // }
 }
