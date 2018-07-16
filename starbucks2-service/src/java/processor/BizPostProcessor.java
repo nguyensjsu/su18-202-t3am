@@ -39,8 +39,8 @@ public class BizPostProcessor extends HttpProcessor {
                 
             case "signin":
                 AuthRequest a = JSONHelper.fromJson2(body, AuthRequest.class);
-                UserProfile up = userProfileDao.find(a.getUserId());
-                if (a.authenticate(up))
+                UserProfile up = userProfileDao.find(a.getEmail());
+                if ((up != null) && (a.authenticate(up)))
                    return "{\"status\" : \"authenticated\"}";
                 return "{\"status\" : \"failed\"}";
 
