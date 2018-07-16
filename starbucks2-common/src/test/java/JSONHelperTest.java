@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.util.List;
 
 import helper.JSONHelper;
 
@@ -32,6 +33,18 @@ public class JSONHelperTest {
        
        assertEquals(321, d.getA());
        assertEquals("BB", d.getB());
+    }
+
+    @Test
+    public void FromJsonForObjList() throws Exception {
+       // todo expand
+       String json = "[{ \"a\": 321, \"b\" : \"BB\"}]";
+       List<DummyClass> lst = JSONHelper.fromJsonForObjList( json, DummyClass.class );
+       
+      for (DummyClass d : lst) {
+          assertEquals(321, d.getA());
+          assertEquals("BB", d.getB());
+       }
     }
 
     @After
