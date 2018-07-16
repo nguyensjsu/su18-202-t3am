@@ -2,7 +2,8 @@
   var API_URL_GET_CARDS = 'http://localhost:8202/api/v1/cards';
   var API_URL_GET_USER_PROFILE = 'http://localhost:8202/api/v1/user_profile';
   var API_URL_GET_PURCHASES = 'http://localhost:8202/api/v1/purchases';
-  var API_URL_ = 'http://localhost:8202/api/v1/cards';
+  var API_URL_USER_SIGNUP = 'http://localhost:8202/api/v1/signup';
+  var API_URL_USER_SIGNIN = 'http://localhost:8202/api/v1/signin';
 
   var formatter_date_full = 'MMMM Do YYYY, h:mm:ss a';
 
@@ -13,7 +14,7 @@
   }
 
   $( function() {
-    $( "#tabs" ).tabs();
+    $( ".tabs" ).tabs();
     _doLogIn().then(_onLoggedIn, _onLoggedOff);
   } );
 
@@ -24,8 +25,8 @@
 
 
   window.login = function(){
-    const txtEmail = $('#txtEmail').val().trim();
-    const txtPassword = $('#txtPassword').val().trim();
+    const email = $('#txtEmail:visible').val().trim();
+    const password = $('#txtPassword:visible').val().trim();
 
     localStorage['my_secure_token'] = '2c60158e-d432-4b78-a300-360cc6fa7260';
     localStorage['my_user_id'] = '2c60158e-d432-4b78-a300-360cc6fa7260';
@@ -34,8 +35,37 @@
   }
 
   window.signup = function(){
-    const txtEmail = $('#txtEmail').val().trim();
-    const txtPassword = $('#txtPassword').val().trim();
+    const email = $('#form-signup #txtEmail').val().trim();
+    const password = $('#form-signup #txtPassword').val().trim();
+    const full_name = $('#form-signup #txtName').val().trim();
+
+
+    promiseAjax = new Promise((resolve, reject) => {
+      _makeApiCall(
+        API_URL_USER_SIGNUP,
+        {
+          data: JSON.stringify({
+            email,
+            full_name,
+            password,
+          })
+        }
+      )
+        .then(res => res.json())
+        .catch(reject)
+        .then(resolve);
+    });
+
+
+    promiseAjax.then((resp) =>{
+      debugger;
+    }).catch((err) => {
+      alert(`
+        Cannot create your account because
+
+        ${err}
+      `)
+    });
   }
 
   window.doOpenNewCard = _doOpenNewCard;
@@ -92,7 +122,7 @@
     }
 
     return new Promise((resolve, reject) => {
-      fetch(
+      _makeApiCall(
         `${API_URL_GET_USER_PROFILE}?uid=${localStorage['my_user_id']}`,
         {
           headers:{
@@ -104,6 +134,21 @@
         .catch(reject)
         .then(resolve);
     });
+  }
+
+  function _makeApiCall(a, b, c){
+    b = Object.assign({
+      mode: "cors",
+      cache: "no-cache",
+      // credentials: "include",
+      headers: {
+          "Content-Type": "application/json; charset=utf-8",
+      },
+      redirect: "follow",
+      referrer: "no-referrer",
+    }, b);
+
+    return fetch(a, b, c);
   }
 
 
@@ -132,13 +177,9 @@
       promiseAjax = Promise.reject();
     } else {
       promiseAjax = new Promise((resolve, reject) => {
-        fetch(
+        _makeApiCall(
           url,
-          {
-            headers:{
-              'Content-Type': 'application/json'
-            }
-          }
+          {} // extra request params...
         )
           .then(res => res.json())
           .catch(reject)
@@ -182,13 +223,9 @@
       promiseAjax = Promise.reject();
     } else {
       promiseAjax = new Promise((resolve, reject) => {
-        fetch(
+        _makeApiCall(
           url,
-          {
-            headers:{
-              'Content-Type': 'application/json'
-            }
-          }
+          {} // extra request params...
         )
           .then(res => res.json())
           .catch(reject)
