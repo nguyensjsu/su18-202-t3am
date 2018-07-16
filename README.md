@@ -18,6 +18,16 @@ Please update your task here....
 ### How to set up project locally
 - https://docs.google.com/document/d/1YKTlsn7VnxUjwjOXPiQigHKz-usWgbWOH0NESBkKrKk/edit?usp=sharing
 
+Note: I added a maven plugin to run the server automatically using just maven
+
+```
+# from project root
+mvn clean install
+
+# start the sever
+mvn exec:java -pl starbucks2-service
+```
+
 ### Demo Envs
 #### Staging Env
 - api: http://ec2-34-192-241-153.compute-1.amazonaws.com:8202/api/v1/cards?uid=1
