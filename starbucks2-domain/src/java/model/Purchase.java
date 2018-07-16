@@ -11,6 +11,8 @@ package model;
  */
 public class Purchase {
     String uid;
+	String email;
+	long purchase_id;
     long date_added = 0;
     double balance = 0.0;
     String note = ""; // purchase note. Default: empty string, in the event that user does not enter any note.
@@ -34,6 +36,22 @@ public class Purchase {
         this.uid = uid;
     }
 
+	public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.uid = uid;
+    }	
+	
+	public long getPurchase_id() {
+        return purchase_id;
+    }
+
+    public void setPurchase_id(long purchase_id) {
+        this.uid = uid;
+    }
+	
     public long getDate_added() {
         return date_added;
     }
@@ -41,7 +59,7 @@ public class Purchase {
     public void setDate_added(long date_added) {
         this.date_added = date_added;
     }
-
+	
     public double getBalance() {
         return balance;
     }
