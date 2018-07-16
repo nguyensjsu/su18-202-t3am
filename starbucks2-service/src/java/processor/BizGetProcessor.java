@@ -4,7 +4,7 @@ import helper.DateHelper;
 import helper.JSONHelper;
 import helper.UUIDHelper;
 import model.Card;
-
+import model.AuthRequest;
 import java.util.List;
 import java.util.Map;
 
@@ -34,14 +34,11 @@ public class BizGetProcessor extends HttpProcessor {
 
             case "user_profile":
                 // add code to response with user_profile
-                uid = paramMap.get("uid");
-                UserProfile user = new UserProfile();
-                user.setFull_name("Sy Le");
-                user.setBalance(20.0);
-                user.setEmail("mocked@gmail.com");
-                user.setUser_id(uid);
-                user.setDate_added(DateHelper.getCurrentEpochTimestamp());
-                return JSONHelper.toJson(user);
+                final String email = paramMap.get("email");
+                final UserProfile up = userProfileDao.find(email);
+                if (up != null)
+                   return JSONHelper.toJson(up);
+                return "{\"error\" : true}";
 
             default:
                 return "Not supported.";
