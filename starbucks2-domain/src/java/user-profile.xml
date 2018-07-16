@@ -5,7 +5,7 @@
 
 <mapper namespace="ns.user_profile">
 
-    <insert id="create" parameterType="CARD">
+    <insert id="create" parameterType="USERPROFILE">
         INSERT INTO sb_user (user_id, email, balance, full_name, password, date_added)
         VALUES(#{user_id}, #{email}, #{balance}, #{full_name}, #{password}, #{date_added});
     </insert>
