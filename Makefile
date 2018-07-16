@@ -17,5 +17,8 @@ unpopulate:
 install: clean
 	mvn install
 
+test: install
+	mvn test
+
 run: install
 	java -cp starbucks2-service/target/starbucks2-service-$(VERSION).jar RestService
