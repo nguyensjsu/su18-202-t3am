@@ -2,7 +2,7 @@
 # Hyunwook Shin
 #
 VERSION = 1.0
-DUMMY_PASSWD = _get_password_from_doc
+DUMMY_PASSWD = _your_db_password
 NEW_PASSWD ?= $(DUMMY_PASSWD)
 
 clean:
