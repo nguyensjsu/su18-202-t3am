@@ -1,6 +1,7 @@
 (function(){
   var API_URL_GET_CARDS = 'http://localhost:8202/api/v1/cards';
   var API_URL_ADD_RELOAD_CARD = 'http://localhost:8202/api/v1/reload';
+  var API_URL_ADD_PURCHASE = 'http://localhost:8202/api/v1/purchase';
   var API_URL_GET_USER_PROFILE = 'http://localhost:8202/api/v1/user_profile';
   var API_URL_GET_PURCHASES = 'http://localhost:8202/api/v1/purchases';
   var API_URL_USER_SIGNUP = 'http://localhost:8202/api/v1/signup';
@@ -95,12 +96,24 @@
   function _onLoggedIn(auth_resp) {
     data.user = auth_resp;
 
-    $('#form-user-info #txtUserID').val(data.user.user_id);
-    $('#form-user-info #txtEmail').val(data.user.email);
-    $('#form-user-info #txtName').val(data.user.full_name);
+    $([
+      '#form-user-info #txtUserID',
+      '#form-add-card #txtUserID',
+      '#form-add-purchase #txtUserID',
+    ].join(', ')).val(data.user.user_id);
 
-    $('#form-add-card #txtUserID').val(data.user.user_id);
-    $('#form-add-card #txtEmail').val(data.user.email);
+    $([
+      '#form-user-info #txtEmail',
+      '#form-add-card #txtEmail',
+      '#form-add-purchase #txtEmail',
+    ].join(', ')).val(data.user.email);
+
+
+    $([
+      '#form-user-info #txtName',
+      // '#form-add-card',
+      // '#form-add-purchase',
+    ].join(', ')).val(data.user.full_name);
 
     // alert('Logging In');
 
@@ -199,17 +212,63 @@
       open: function(){
         // reset the form...
         dlg = this;
-
-        $('#form-add-card #txtCardId').val('');
-        $('#form-add-card #txtCardCode').val('');
-        $('#form-add-card #txtCardBalance').val('');
       },
       buttons: {
         "Save": function() {
           _doNewCard({
-              number: $('#form-add-card #txtCardId').val().trim(),
-              code: $('#form-add-card #txtCardCode').val().trim(),
-              balance: $('#form-add-card #txtCardBalance').val().trim(),
+              // #form-add-purchase #txtPurchaseAmount
+              // #form-add-purchase #txtPurchaseNote
+              // date_added: Date.now(),
+              // uid: data.user.user_id,
+            })
+            .then(function() {
+              $( dlg ).dialog( "close" );
+              window.refresh();
+            })
+            .catch(function(err){
+              alert(err);
+            })
+        },
+        "Cancel": function() {
+          $( dlg ).dialog( "close" );
+        }
+      },
+    });
+  }
+
+  function _doNewCard(req){
+    return _makeApiCall(
+      API_URL_ADD_PURCHASE,
+      {
+        method: "POST",
+        body: JSON.stringify(req)
+      }
+    );
+  }
+
+  function _doOpenNewPurchase(){
+    var dlg;
+
+    $('#dialog-add-purchase').dialog({
+      resizable: false,
+      draggable: false,
+      height: "auto",
+      width: 600,
+      modal: true,
+      open: function(){
+        // reset the form...
+        dlg = this;
+
+        $('#form-add-purchase #txtCardId').val('');
+        $('#form-add-purchase #txtCardCode').val('');
+        $('#form-add-purchase #txtCardBalance').val('');
+      },
+      buttons: {
+        "Save": function() {
+          _doNewPurchase({
+              number: $('#form-add-purchase #txtCardId').val().trim(),
+              code: $('#form-add-purchase #txtCardCode').val().trim(),
+              balance: $('#form-add-purchase #txtCardBalance').val().trim(),
               date_added: Date.now(),
               uid: data.user.user_id,
             })
@@ -222,15 +281,13 @@
             })
         },
         "Cancel": function() {
-          dlg = this;
-
           $( dlg ).dialog( "close" );
         }
       },
     });
   }
 
-  function _doNewCard(req){
+  function _doNewPurchase(req){
     return _makeApiCall(
       API_URL_ADD_RELOAD_CARD,
       {
@@ -238,14 +295,6 @@
         body: JSON.stringify(req)
       }
     );
-  }
-
-  function _doOpenNewPurchase(){
-    alert('add new purchase')
-  }
-
-  function _doNewPurchase(req){
-
   }
 
 

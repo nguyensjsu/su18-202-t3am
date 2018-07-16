@@ -124,10 +124,6 @@
 
 
   <div id="dialog-add-card" title="Add New Card" style="display:none">
-    <div style="margin-bottom:25px">
-      <button class="btn btn-lg btn-default" onclick="window.refresh()">Refresh</button>
-    </div>
-
     <form id="form-add-card" onsubmit="return false;">
       <div class="form-group">
         <label for="txtUserID">User ID</label>
@@ -142,12 +138,34 @@
         <input type="number" class="form-control" id="txtCardId" maxlength="9" autofocus="true">
       </div>
       <div class="form-group">
-        <label for="txtCardCode">Card Cord</label>
+        <label for="txtCardCode">Card Code</label>
         <input type="number" class="form-control" id="txtCardCode" maxlength="3">
       </div>
       <div class="form-group">
         <label for="txtCardBalance">Card Balance</label>
-        <input type="number" class="form-control" id="txtCardBalance" maxlength="4">
+        <input type="number" class="form-control" id="txtCardBalance" maxlength="8">
+      </div>
+    </form>
+  </div>
+
+
+  <div id="dialog-add-purchase" title="Add New Purchase" style="display:none">
+    <form id="form-add-purchase" onsubmit="return false;">
+      <div class="form-group">
+        <label for="txtUserID">User ID</label>
+        <input type="text" class="form-control" id="txtUserID" readonly="true">
+      </div>
+      <div class="form-group">
+        <label for="txtEmail">Email address</label>
+        <input type="email" class="form-control" id="txtEmail" readonly="true">
+      </div>
+      <div class="form-group">
+        <label for="txtPurchaseAmount">Charge Amount</label>
+        <input type="number" class="form-control" id="txtPurchaseAmount" maxlength="8" autofocus="true">
+      </div>
+      <div class="form-group">
+        <label for="txtPurchaseNote">Note</label>
+        <input type="text" class="form-control" id="txtPurchaseNote" maxlength="200">
       </div>
     </form>
   </div>
