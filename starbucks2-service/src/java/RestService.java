@@ -1,5 +1,6 @@
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import helper.ServerConfigHelper;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.rest.RestBindingMode;
 import processor.BizGetProcessor;
@@ -23,7 +24,10 @@ public class RestService extends CamelService {
         addRoute(new RouteBuilder() {
             @Override
             public void configure() throws Exception {
-                restConfiguration().component("restlet").host("localhost").port(8202).bindingMode(RestBindingMode.auto);
+                restConfiguration().component("restlet")
+                    .host(ServerConfigHelper.getHost())
+                    .port(ServerConfigHelper.getPort())
+                    .bindingMode(RestBindingMode.auto);
 
                 rest("/api/v1").enableCORS(true)
                         .options("/{path}").to("direct:bizoption")

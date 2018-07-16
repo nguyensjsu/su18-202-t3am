@@ -3,6 +3,14 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <!--properties for the variable...-->
+    <properties>
+        <property name="driver" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://ambari.cfcktxhbpkfb.us-east-1.rds.amazonaws.com:5432/ambari"/>
+        <property name="username" value="ambari"/>
+        <property name="password" value="_your_db_password"/>
+    </properties>
+
 
     <typeAliases>
         <typeAlias type="model.Card" alias="CARD"/>
@@ -15,12 +23,14 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="org.postgresql.Driver"/>
-                <property name="url" value="jdbc:postgresql://ambari.cfcktxhbpkfb.us-east-1.rds.amazonaws.com:5432/ambari"/>
-                <property name="username" value="ambari"/>
-                <property name="password" value="_your_db_password"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
             </dataSource>
         </environment>
     </environments>
+
+
     <mappers>
         <mapper resource="card.xml" />
         <mapper resource="purchase.xml" />
