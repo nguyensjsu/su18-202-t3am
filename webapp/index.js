@@ -1,5 +1,12 @@
+localStorage['my_secure_token'] = '2c60158e-d432-4b78-a300-360cc6fa7260';
+localStorage['my_user_id'] = '2c60158e-d432-4b78-a300-360cc6fa7260';
+
 (function(){
-  var api_host = '';
+  var API_URL_GET_CARDS = 'http://localhost:8202/api/v1/cards';
+  var API_URL_GET_USER_PROFILE = 'http://localhost:8202/api/v1/user_profile';
+  var API_URL_ = 'http://localhost:8202/api/v1/cards';
+  var API_URL_ = 'http://localhost:8202/api/v1/cards';
+
   var data = {
     user: null,
     cards: [],
@@ -49,6 +56,10 @@
       cards: [],
       purchases: [],
     };
+
+
+    delete localStorage['my_secure_token'];
+    delete localStorage['my_user_id'];
   }
 
 
@@ -60,13 +71,25 @@
 
   // methods
   function _doLogIn(){
-    data = {
-      user: null,
-      cards: [],
-      purchases: [],
-    };
+    if(!localStorage['my_secure_token'] || !localStorage['my_user_id']){
+      return Promise.reject();
+    }
 
-    return Promise.resolve();
+
+
+    return new Promise((resolve, reject) => {
+      fetch(
+        `${API_URL_GET_USER_PROFILE}?uid=${localStorage['my_user_id']}`,
+        {
+          headers:{
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+        .then(res => res.json())
+        .catch(reject)
+        .then(resolve);
+    });
   }
 
 
