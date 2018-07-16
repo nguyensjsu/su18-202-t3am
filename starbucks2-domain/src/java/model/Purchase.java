@@ -11,8 +11,8 @@ package model;
  */
 public class Purchase {
     String uid;
-	String email;
-	long purchase_id;
+    String email;
+    long purchase_id;
     long date_added = 0;
     double balance = 0.0;
     String note = ""; // purchase note. Default: empty string, in the event that user does not enter any note.
