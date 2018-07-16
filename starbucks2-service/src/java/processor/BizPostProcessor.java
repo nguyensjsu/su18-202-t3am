@@ -18,31 +18,31 @@ public class BizPostProcessor extends HttpProcessor {
                 Card c = JSONHelper.fromJson2(body, Card.class);
                 cardDao.create(c);
                 return JSONHelper.toJson(c);
-                
+
             case "purchase":
                 // User ID, balance(or the cost of the order), and purchase location will be from the body
                 Purchase p = JSONHelper.fromJson2(body, Purchase.class);
                 p.setDate_added(DateHelper.getCurrentEpochTimestamp());
                 purchaseDao.create(p);
                 return JSONHelper.toJson(p);
-                
+
             case "signup":
                 UserProfile u = JSONHelper.fromJson2(body, UserProfile.class);
-                
+
                 // generate the uid and current timestamp
                 u.setBalance(0.0);
                 u.setUser_id(UUIDHelper.getRandomUUID());
                 u.setDate_added(DateHelper.getCurrentEpochTimestamp());
-                
+
                 userProfileDao.create(u);
                 return JSONHelper.toJson(u);
-                
+
             case "signin":
                 AuthRequest a = JSONHelper.fromJson2(body, AuthRequest.class);
                 UserProfile up = userProfileDao.find(a.getEmail());
                 if ((up != null) && (a.authenticate(up)))
-                   return "{\"status\" : \"authenticated\"}";
-                return "{\"status\" : \"failed\"}";
+                   return JSONHelper.toJson(up);
+                return "{\"error\" : true}";
 
             case "signout":
                 return "{\"status\" : \"signed out\"}";
