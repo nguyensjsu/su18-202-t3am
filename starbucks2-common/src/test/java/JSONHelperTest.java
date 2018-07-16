@@ -7,6 +7,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import helper.JSONHelper;
+
 /**
  * Testing the JSONHelper Classes
  * Hyunwook Shin
@@ -23,9 +25,13 @@ public class JSONHelperTest {
     }
 
     @Test
-    public void SampleTest() {
+    public void FromJson2Test() throws Exception {
        // todo expand
-        assertEquals("a", "a");
+       String json = "{ \"a\": 321, \"b\" : \"BB\"}";
+       DummyClass d = JSONHelper.fromJson2( json, DummyClass.class );
+       
+       assertEquals(321, d.getA());
+       assertEquals("BB", d.getB());
     }
 
     @After
