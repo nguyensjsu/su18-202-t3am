@@ -94,6 +94,10 @@
   function _onLoggedIn(auth_resp) {
     data.user = auth_resp;
 
+    $('#form-user-info #txtUserID').val(data.user.user_id);
+    $('#form-user-info #txtEmail').val(data.user.email);
+    $('#form-user-info #txtName').val(data.user.full_name);
+
     // alert('Logging In');
 
     $('#page-login').hide();
