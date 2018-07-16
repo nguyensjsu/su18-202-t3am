@@ -43,10 +43,9 @@ public class BizPostProcessor extends HttpProcessor {
                 if (a.authenticate(up))
                    return "{\"status\" : \"authenticated\"}";
                 return "{\"status\" : \"failed\"}";
-                
+
             case "signout":
-                // add code here
-                return "signout";
+                return "{\"status\" : \"signed out\"}";
 
             default:
                 throw new Exception("Not supported.");
