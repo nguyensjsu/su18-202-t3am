@@ -38,6 +38,11 @@ mvn exec:java -pl starbucks2-service
 - webapp: TBD
 
 
+### Heroku Envs
+- api : http://cmpe202-java-rest-api.herokuapp.com
+- webapp : http://cmpe202-t3am-starbucks-webapp.herokuapp.com
+
+
 ## Sample Curl / Demo
 ### Get Cards by UserId
 #### Curl Sample
