@@ -30,8 +30,8 @@ public class BizGetProcessor extends HttpProcessor {
                 // to calculate the remaining balance for the user. Card (+bal) and Purchase (-bal).
                 uid = paramMap.get("uid");
                 List<Purchase> pList = purchaseDao.list(uid);
-                return JSONHelper.toJson(pList);   
-                
+                return JSONHelper.toJson(pList);
+
             case "user_profile":
                 // add code to response with user_profile
                 uid = paramMap.get("uid");
@@ -46,7 +46,5 @@ public class BizGetProcessor extends HttpProcessor {
             default:
                 return "Not supported.";
         }
-
     }
-
 }
