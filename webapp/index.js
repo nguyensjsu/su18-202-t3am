@@ -1,5 +1,6 @@
 (function(){
   var API_URL_GET_CARDS = 'http://localhost:8202/api/v1/cards';
+  var API_URL_ADD_RELOAD_CARD = 'http://localhost:8202/api/v1/reload';
   var API_URL_GET_USER_PROFILE = 'http://localhost:8202/api/v1/user_profile';
   var API_URL_GET_PURCHASES = 'http://localhost:8202/api/v1/purchases';
   var API_URL_USER_SIGNUP = 'http://localhost:8202/api/v1/signup';
@@ -98,6 +99,9 @@
     $('#form-user-info #txtEmail').val(data.user.email);
     $('#form-user-info #txtName').val(data.user.full_name);
 
+    $('#form-add-card #txtUserID').val(data.user.user_id);
+    $('#form-add-card #txtEmail').val(data.user.email);
+
     // alert('Logging In');
 
     $('#page-login').hide();
@@ -184,32 +188,56 @@
 
 
   function _doOpenNewCard(){
+    var dlg;
+
     $('#dialog-add-card').dialog({
       resizable: false,
+      draggable: false,
       height: "auto",
       width: 600,
       modal: true,
-      close: function(){
+      open: function(){
         // reset the form...
-        $('#form-add-card #txtUserID').val('');
-        $('#form-add-card #txtEmail').val('');
+        dlg = this;
+
         $('#form-add-card #txtCardId').val('');
         $('#form-add-card #txtCardCode').val('');
         $('#form-add-card #txtCardBalance').val('');
       },
       buttons: {
         "Save": function() {
-          $( this ).dialog( "close" );
+          _doNewCard({
+              number: $('#form-add-card #txtCardId').val().trim(),
+              code: $('#form-add-card #txtCardCode').val().trim(),
+              balance: $('#form-add-card #txtCardBalance').val().trim(),
+              date_added: Date.now(),
+              uid: data.user.user_id,
+            })
+            .then(function() {
+              $( dlg ).dialog( "close" );
+              window.refresh();
+            })
+            .catch(function(err){
+              alert(err);
+            })
         },
         "Cancel": function() {
-          $( this ).dialog( "close" );
+          dlg = this;
+
+          $( dlg ).dialog( "close" );
         }
       },
     });
   }
 
   function _doNewCard(req){
-
+    return _makeApiCall(
+      API_URL_ADD_RELOAD_CARD,
+      {
+        method: "POST",
+        body: JSON.stringify(req)
+      }
+    );
   }
 
   function _doOpenNewPurchase(){
