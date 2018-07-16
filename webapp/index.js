@@ -88,8 +88,21 @@
   window.doOpenNewPurchase = _doOpenNewPurchase;
 
   window.refresh = function(){
-    _loadCards();
-    _loadPurchase();
+    Promise.all([
+      _loadCards(),
+      _loadPurchase(),
+    ]).then(([cardTotalBalance, purchaseTotalBalance]) => {
+      // calculate the current balance
+      data.current_balance = cardTotalBalance - purchaseTotalBalance;
+
+      $([
+        '#form-user-info #txtCurrentBalance',
+        // '#form-add-card',
+        // '#form-add-purchase',
+      ].join(', ')).val(
+        _formatCurrency( data.current_balance )
+      );
+    })
   }
 
   // events...
@@ -114,6 +127,7 @@
       // '#form-add-card',
       // '#form-add-purchase',
     ].join(', ')).val(data.user.full_name);
+
 
     // alert('Logging In');
 
@@ -212,14 +226,21 @@
       open: function(){
         // reset the form...
         dlg = this;
+
+        $([
+          '#form-add-card #txtCardId',
+          '#form-add-card #txtCardCode',
+          '#form-add-card #txtCardBalance',
+        ].join(', ')).val('');
       },
       buttons: {
         "Save": function() {
           _doNewCard({
-              // #form-add-purchase #txtPurchaseAmount
-              // #form-add-purchase #txtPurchaseNote
-              // date_added: Date.now(),
-              // uid: data.user.user_id,
+              number: $('#form-add-card #txtCardId').val().trim(),
+              code: $('#form-add-card #txtCardCode').val().trim(),
+              balance: $('#form-add-card #txtCardBalance').val().trim(),
+              date_added: Date.now(),
+              uid: data.user.user_id,
             })
             .then(function() {
               $( dlg ).dialog( "close" );
@@ -238,7 +259,7 @@
 
   function _doNewCard(req){
     return _makeApiCall(
-      API_URL_ADD_PURCHASE,
+      API_URL_ADD_RELOAD_CARD,
       {
         method: "POST",
         body: JSON.stringify(req)
@@ -258,19 +279,11 @@
       open: function(){
         // reset the form...
         dlg = this;
-
-        $('#form-add-purchase #txtCardId').val('');
-        $('#form-add-purchase #txtCardCode').val('');
-        $('#form-add-purchase #txtCardBalance').val('');
       },
       buttons: {
         "Save": function() {
           _doNewPurchase({
-              number: $('#form-add-purchase #txtCardId').val().trim(),
-              code: $('#form-add-purchase #txtCardCode').val().trim(),
-              balance: $('#form-add-purchase #txtCardBalance').val().trim(),
-              date_added: Date.now(),
-              uid: data.user.user_id,
+
             })
             .then(function() {
               $( dlg ).dialog( "close" );
@@ -289,7 +302,7 @@
 
   function _doNewPurchase(req){
     return _makeApiCall(
-      API_URL_ADD_RELOAD_CARD,
+      API_URL_ADD_PURCHASE,
       {
         method: "POST",
         body: JSON.stringify(req)
@@ -323,31 +336,38 @@
       </tr>
     `);
 
-    promiseAjax.then(function(resp){
+    return promiseAjax.then(function(resp){
       if(resp.length === 0){
         throw '';
       }
 
       // [{"number":"123456789","code":"321","balance":20.0,"date_added":1524958728440,"uid":"2c60158e-d432-4b78-a300-360cc6fa7260"}]
       $(listEl).empty();
-      resp.forEach(function(item){
+      const finalAmount = resp.reduce(function(finalAmount, item){
         $(`
           <tr>
             <td>${item.number}</td>
             <td>${item.code}</td>
-            <td>${item.balance}</td>
+            <td>${_formatCurrency(item.balance)}</td>
             <td>${moment(item.date_added).format(formatter_date_full)}</td>
           </tr>
           `).appendTo(listEl)
-      })
+
+        return finalAmount + Math.abs( item.balance );
+      }, 0)
+
+      return Promise.resolve(finalAmount);
     }).catch(() => {
       $(listEl).html(`
         <tr>
           <td colspan="4">No Result</td>
         </tr>
       `)
+
+      return Promise.resolve(0);
     });
   }
+
 
   function _loadPurchase() {
     var promiseAjax;
@@ -374,7 +394,7 @@
       </tr>
     `);
 
-    promiseAjax.then(function(resp){
+    return promiseAjax.then(function(resp){
       if(resp.length === 0){
         throw '';
       }
@@ -383,22 +403,35 @@
 
       $(listEl).empty();
 
-      resp.forEach(function(item){
+
+      const finalAmount = resp.reduce(function(finalAmount, item){
         $(`
           <tr>
             <td>${item.number}</td>
             <td>${item.code}</td>
-            <td>${item.balance}</td>
+            <td>${_formatCurrency(item.balance)}</td>
             <td>${moment(item.date_added).format(formatter_date_full)}</td>
           </tr>
           `).appendTo(listEl)
-      })
+
+        return finalAmount + Math.abs( item.balance );
+      }, 0)
+
+      return Promise.resolve(finalAmount);
     }).catch(() => {
       $(listEl).html(`
         <tr>
           <td colspan="4">No Result</td>
         </tr>
       `)
+
+      return Promise.resolve(0);
     });
+  }
+
+
+
+  function _formatCurrency(bal){
+    return `$${bal.toFixed(2)}`
   }
 })()
