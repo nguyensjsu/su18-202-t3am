@@ -1,6 +1,3 @@
-localStorage['my_secure_token'] = '2c60158e-d432-4b78-a300-360cc6fa7260';
-localStorage['my_user_id'] = '2c60158e-d432-4b78-a300-360cc6fa7260';
-
 (function(){
   var API_URL_GET_CARDS = 'http://localhost:8202/api/v1/cards';
   var API_URL_GET_USER_PROFILE = 'http://localhost:8202/api/v1/user_profile';
@@ -27,7 +24,18 @@ localStorage['my_user_id'] = '2c60158e-d432-4b78-a300-360cc6fa7260';
 
 
   window.login = function(){
+    const txtEmail = $('#txtEmail').val().trim();
+    const txtPassword = $('#txtPassword').val().trim();
+
+    localStorage['my_secure_token'] = '2c60158e-d432-4b78-a300-360cc6fa7260';
+    localStorage['my_user_id'] = '2c60158e-d432-4b78-a300-360cc6fa7260';
+
     _onLoggedIn();
+  }
+
+  window.signup = function(){
+    const txtEmail = $('#txtEmail').val().trim();
+    const txtPassword = $('#txtPassword').val().trim();
   }
 
   window.doOpenNewCard = _doOpenNewCard;
