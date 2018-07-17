@@ -13,6 +13,11 @@ public class DummyClass {
     int a;
     String b;
 
+    public DummyClass(int a, String b) {
+       this.a = a;
+       this.b = b;
+    }
+
     public int  getA(){
        return a;
     }

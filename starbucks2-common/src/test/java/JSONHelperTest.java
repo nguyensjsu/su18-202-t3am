@@ -36,7 +36,7 @@ public class JSONHelperTest {
      }
 
      @Test
-     public void FromJsonForObjList() throws Exception {
+     public void FromJsonForObjListTest() throws Exception {
         // todo expand
         String json = "[{ \"a\": 321, \"b\" : \"BB\"}]";
         List<DummyClass> lst = JSONHelper.fromJsonForObjList( json, DummyClass.class );
@@ -45,6 +45,15 @@ public class JSONHelperTest {
            assertEquals(321, d.getA());
            assertEquals("BB", d.getB());
         }
+     }
+
+     @Test
+     public void ToJsonTest() throws Exception {
+        DummyClass d1 = new DummyClass( 1, "abc");
+        String json = JSONHelper.toJson(d1);
+        DummyClass d2 = JSONHelper.fromJson2( json, DummyClass.class );
+        assertEquals( d1.getA(), d1.getA() );
+        assertEquals( d1.getB(), d1.getB() );
      }
 
      @After
