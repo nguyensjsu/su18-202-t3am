@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <build>
-        <sourceDirectory>${basedir}/src/java</sourceDirectory>
+        <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
         <resources>
             <resource>
-                <directory>src/java</directory>
+                <directory>src/main/java</directory>
                 <includes>
                     <include>**/*.xml</include>
                 </includes>

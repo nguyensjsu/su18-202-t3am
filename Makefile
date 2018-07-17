@@ -10,10 +10,10 @@ clean:
 	$(MAKE) -C jenkins clean
 
 populate:
-	sed -i "s/value=\"$(DUMMY_PASSWD)\"/value=\"$(NEW_PASSWD)\"/g" starbucks2-domain/src/java/sql-maps-config.xml
+	sed -i "s/value=\"$(DUMMY_PASSWD)\"/value=\"$(NEW_PASSWD)\"/g" starbucks2-domain/src/main/java/sql-maps-config.xml
 
 unpopulate:
-	sed -i "s/value=\"$(NEW_PASSWD)\"/value=\"$(DUMMY_PASSWD)\"/g" starbucks2-domain/src/java/sql-maps-config.xml
+	sed -i "s/value=\"$(NEW_PASSWD)\"/value=\"$(DUMMY_PASSWD)\"/g" starbucks2-domain/src/main/java/sql-maps-config.xml
 
 install: clean
 	mvn install
