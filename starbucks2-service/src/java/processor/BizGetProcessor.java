@@ -4,7 +4,7 @@ import helper.DateHelper;
 import helper.JSONHelper;
 import helper.UUIDHelper;
 import model.Card;
-
+import model.AuthRequest;
 import java.util.List;
 import java.util.Map;
 
@@ -30,22 +30,18 @@ public class BizGetProcessor extends HttpProcessor {
                 // to calculate the remaining balance for the user. Card (+bal) and Purchase (-bal).
                 uid = paramMap.get("uid");
                 List<Purchase> pList = purchaseDao.list(uid);
-                return JSONHelper.toJson(pList);   
-                
+                return JSONHelper.toJson(pList);
+
             case "user_profile":
                 // add code to response with user_profile
-                uid = paramMap.get("uid");
-                UserProfile user = new UserProfile();
-                user.setFull_name("Sy Le");
-                user.setBalance(20.0);
-                user.setUser_id(UUIDHelper.getRandomUUID());
-                user.setDate_added(DateHelper.getCurrentEpochTimestamp());
-                return JSONHelper.toJson(user);
+                final String email = paramMap.get("email");
+                final UserProfile up = userProfileDao.find(email);
+                if (up != null)
+                   return JSONHelper.toJson(up);
+                return "{\"error\" : true}";
 
             default:
                 return "Not supported.";
         }
-
     }
-
 }

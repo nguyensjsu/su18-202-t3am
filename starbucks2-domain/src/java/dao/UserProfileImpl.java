@@ -31,12 +31,18 @@ public class UserProfileImpl  extends BasePOJO implements UserProfileDao {
 
     @Override
     public UserProfile find(String key) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        SqlSession s = client.openSession(true);
+        UserProfile up = s.selectOne("ns.user_profile.find", key);
+        s.close();
+        return up;
     }
 
     @Override
-    public List<UserProfile> list(String kw) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<UserProfile> list(String key) throws Exception {
+        SqlSession s = client.openSession(true);
+        List<UserProfile> users = s.selectList("ns.user_profile.list", key);
+        s.close();
+        return users;
     }
 
 

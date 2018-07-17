@@ -18,9 +18,29 @@ Please update your task here....
 ### How to set up project locally
 - https://docs.google.com/document/d/1YKTlsn7VnxUjwjOXPiQigHKz-usWgbWOH0NESBkKrKk/edit?usp=sharing
 
-### EC2 Demo Server
-- http://ec2-34-192-241-153.compute-1.amazonaws.com:8202/api/v1/cards?uid=1
+Note: I added a maven plugin to run the server automatically using just maven
 
+```
+# from project root
+mvn clean install
+
+# start the sever
+mvn exec:java -pl starbucks2-service
+```
+
+### Demo Envs
+#### Staging Env
+- api: http://ec2-34-192-241-153.compute-1.amazonaws.com:8202/api/v1/cards?uid=1
+- webapp: https://cmpe202-t3am-starbucks-webapp.herokuapp.com/
+
+### Prod Env
+- api: TBD
+- webapp: TBD
+
+
+### Heroku Envs
+- api : http://cmpe202-java-rest-api.herokuapp.com
+- webapp : http://cmpe202-t3am-starbucks-webapp.herokuapp.com
 
 
 ## Sample Curl / Demo
@@ -122,6 +142,15 @@ e. add new purchase (refer to the above api for input)
 
 
 ## Sprint Updates
+### 07/16/2018
+- Completed API to sign in using `email` and `password`
+- Deployed our API Back End to heroku: http://cmpe202-java-rest-api.herokuapp.com
+- Continued BE and FE (webapp)integration work: authentication (signin / signup) flow
+- Parametrized Database Connection Strings, App Host, App Port into environment for deployment.
+- Fixed UserProfile Fetch API to return real data instead of mocks
+- WIP - CI/CD pipeline with jenkins
+- WIP - Plumbing up unit tests
+
 ### 07/15/2018
 - Initial Code complete, Server is now Up and Running
 - Created 2 AWS EC instances for prod and dev
@@ -145,13 +174,13 @@ e. add new purchase (refer to the above api for input)
 
 ### API Work
 - [X] User Signup (Sy)
-- [ ] User Signin (Sy)
-- [ ] User Signout (Sy)
+- [X] User Signin (Hyunwook)
+- [X] User Signout (Hyunwook)
 - [ ] Get User Info by UserID (Sy)
 - [X] Create Card / Reload (Lin)
 - [ ] Create Purchase / Payment (Hyunwook)
-- [X] Get All Transactions (Cards & Purchase) by uid (Hyunwook) 
-  - [X] Get Cards by uid (Lin) 
+- [X] Get All Transactions (Cards & Purchase) by uid (Hyunwook)
+  - [X] Get Cards by uid (Lin)
   - [X] Get Purchase by uid (Kevin)
 
 
