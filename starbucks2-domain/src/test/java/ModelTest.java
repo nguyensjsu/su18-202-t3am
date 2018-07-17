@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import model.Card;
+import model.Purchase;
 
 /**
  * Testing the Model Classes
@@ -44,6 +45,22 @@ public class ModelTest {
         assertTrue(Math.abs( 0 - card.getBalance()) < 0.01);
         card.setBalance(1000);
         assertTrue(Math.abs( 1000 - card.getBalance()) < 0.01);
+     }
+
+     @Test
+     public void PurchaseTest() throws Exception {
+        Purchase p = new Purchase(1, "Test purchase");
+        p.setUid( "65c580da-757d-4201-ad60-3fa6d9e96313");
+        assertEquals(p.getUid(), "65c580da-757d-4201-ad60-3fa6d9e96313");
+
+        p.setEmail( "test-user@sjsu.edu");
+        assertEquals(p.getEmail(), "test-user@sjsu.edu");
+
+        p.setPurchase_id( 123456 );
+        assertEquals(p.getPurchase_id(), 123456 );
+
+        p.setDate_added( 99999999 );
+        assertEquals(p.getDate_added(), 99999999 );
      }
 
      @After
