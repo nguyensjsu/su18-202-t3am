@@ -44,33 +44,12 @@ mvn exec:java -pl starbucks2-service
 
 
 ## Sample Curl / Demo
-### Get Cards by UserId
-#### Curl Sample
-```
-curl -X GET \
-  'http://localhost:8202/api/v1/cards?uid=2c60158e-d432-4b78-a300-360cc6fa7260'
-```
-
-#### Response
-```
-[
-  {
-    "number": "123456789",
-    "code": "321",
-    "balance": 20,
-    "date_added": 1524958728440,
-    "uid": "2c60158e-d432-4b78-a300-360cc6fa7260"
-  }
-]
-```
-
-### Create User
+### Sign up (Create User)
 #### Curl Sample
 ```
 curl -X POST \
   http://localhost:8202/api/v1/signup \
   -H 'accept: application/json' \
-  -H 'cache-control: no-cache' \
   -d '{
   "email": "syle1@gmail.com",
   "full_name": "Sy Le",
@@ -79,29 +58,75 @@ curl -X POST \
 ```
 
 #### Response
-```
-{
-    "number": "123456789",
-    "code": "321",
-    "balance": 20,
-    "date_added": 1524958728440,
-    "uid": "2c60158e-d432-4b78-a300-360cc6fa7260"
-}
-```
+https://github.com/nguyensjsu/su18-202-t3am/blob/master/starbucks2-domain/src/main/java/model/UserProfile.java
 
 
-### Sign in
+### Sign in (Log in)
 #### Curl Sample
 ```
 curl -X POST \
   http://localhost:8202/api/v1/signin \
   -H 'accept: application/json' \
-  -H 'cache-control: no-cache' \
   -d '{
   "email": "syle1@gmail.com",
   "password": "password"
 }'
 ```
+
+#### Response
+https://github.com/nguyensjsu/su18-202-t3am/blob/master/starbucks2-domain/src/main/java/model/UserProfile.java
+
+
+
+### Get Cards Reload by UserId
+#### Curl Sample
+```
+curl -X GET \
+  'http://localhost:8202/api/v1/cards?uid=2c60158e-d432-4b78-a300-360cc6fa7260'
+```
+
+#### Response
+https://github.com/nguyensjsu/su18-202-t3am/blob/master/starbucks2-domain/src/main/java/model/Card.java
+
+
+
+### Reload Card by UserId
+#### Curl Sample
+```
+curl 'http://localhost:8080/api/v1/reload' \8081/no-referrer' \
+    -H 'Connection: keep-alive' \
+    -H 'DNT: 1' --data-binary '{"uid":"958bbc20-cda2-4f57-9fe6-e1ecb6e6e913","number":"111111111","code":"111","balance":"10"}'
+```
+
+#### Response
+https://github.com/nguyensjsu/su18-202-t3am/blob/master/starbucks2-domain/src/main/java/model/Card.java
+
+
+
+
+### Get Purchases by UserId
+#### Curl Sample
+```
+curl -X GET \
+  'http://localhost:8202/api/v1/purchases?uid=2c60158e-d432-4b78-a300-360cc6fa7260'
+```
+
+#### Response
+https://github.com/nguyensjsu/su18-202-t3am/blob/master/starbucks2-domain/src/main/java/model/Purchase.java
+
+
+
+
+### Add Purchase by UserId
+#### Curl Sample
+```
+curl 'http://localhost:8080/api/v1/purchase' \
+    -H 'Content-Type: application/json; charset=utf-8' \
+    -H 'DNT: 1' --data-binary '{"uid":"958bbc20-cda2-4f57-9fe6-e1ecb6e6e913","balance":"3","note":"Iced Coffee"}'
+```
+
+#### Response
+https://github.com/nguyensjsu/su18-202-t3am/blob/master/starbucks2-domain/src/main/java/model/Purchase.java
 
 
 ## API Contract
@@ -156,6 +181,13 @@ e. add new purchase (refer to the above api for input)
 
 
 ## Sprint Updates
+### 07/17/2018 and 07/17/2018
+- Continue working on integrating Web FE in Add Purchase Flow
+- Refactored and clean up code to make the Add Purchase API flow to work
+- Clean up sql_backup file
+- Docker container for the API later
+- WIP - Continued Add mode unit tests
+
 ### 07/16/2018
 - Completed API to sign in using `email` and `password`
 - Deployed our API Back End to heroku: http://cmpe202-java-rest-api.herokuapp.com
