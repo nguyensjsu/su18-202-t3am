@@ -36,6 +36,11 @@ public class ServerConfigHelper {
         password = System.getenv("DB_PASSWORD");
         url = System.getenv("DB_URL");
 
+
+        System.out.println("debug_db_url: " + url);
+        System.out.println("debug_db_username: " + username);
+        System.out.println("debug_db_password: " + password);
+
         Properties properties = new Properties();
         if(username != null && !username.isEmpty()){
             properties.setProperty("username", username);
