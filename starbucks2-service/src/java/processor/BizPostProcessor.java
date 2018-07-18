@@ -15,14 +15,17 @@ public class BizPostProcessor extends HttpProcessor {
     String handle(final Map<String, Object> map) throws Exception {
         switch (path) {
             case "reload":
-                Card c = JSONHelper.fromJson2(body, Card.class);
+                final Card c = JSONHelper.fromJson2(body, Card.class);
+                c.setDate_added(DateHelper.getCurrentEpochTimestamp());
+                c.setUid(UUIDHelper.getRandomUUID());
                 cardDao.create(c);
                 return JSONHelper.toJson(c);
 
             case "purchase":
                 // User ID, balance(or the cost of the order), and purchase location will be from the body
-                Purchase p = JSONHelper.fromJson2(body, Purchase.class);
+                final Purchase p = JSONHelper.fromJson2(body, Purchase.class);
                 p.setDate_added(DateHelper.getCurrentEpochTimestamp());
+                p.setUid(UUIDHelper.getRandomUUID());
                 purchaseDao.create(p);
                 return JSONHelper.toJson(p);
 
