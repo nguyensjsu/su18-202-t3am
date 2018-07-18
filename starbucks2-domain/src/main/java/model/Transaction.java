@@ -10,9 +10,7 @@ package model;
  * @author syle
  */
 public class Transaction {
-
     protected String uid;
-    protected String email;
     protected double balance;
     protected long date_added;
 
@@ -26,14 +24,6 @@ public class Transaction {
 
     public void setUid(String uid) {
         this.uid = uid;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public double getBalance() {
