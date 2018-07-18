@@ -53,9 +53,6 @@ public class ModelTest {
         p.setUid( "65c580da-757d-4201-ad60-3fa6d9e96313");
         assertEquals(p.getUid(), "65c580da-757d-4201-ad60-3fa6d9e96313");
 
-        p.setEmail( "test-user@sjsu.edu");
-        assertEquals(p.getEmail(), "test-user@sjsu.edu");
-
         p.setPurchase_id( 123456 );
         assertEquals(p.getPurchase_id(), 123456 );
 

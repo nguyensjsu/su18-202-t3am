@@ -17,7 +17,6 @@ public class BizPostProcessor extends HttpProcessor {
             case "reload":
                 final Card c = JSONHelper.fromJson2(body, Card.class);
                 c.setDate_added(DateHelper.getCurrentEpochTimestamp());
-                c.setUid(UUIDHelper.getRandomUUID());
                 cardDao.create(c);
                 return JSONHelper.toJson(c);
 
@@ -25,7 +24,6 @@ public class BizPostProcessor extends HttpProcessor {
                 // User ID, balance(or the cost of the order), and purchase location will be from the body
                 final Purchase p = JSONHelper.fromJson2(body, Purchase.class);
                 p.setDate_added(DateHelper.getCurrentEpochTimestamp());
-                p.setUid(UUIDHelper.getRandomUUID());
                 purchaseDao.create(p);
                 return JSONHelper.toJson(p);
 

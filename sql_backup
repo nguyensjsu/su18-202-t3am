@@ -20,7 +20,7 @@ CREATE TABLE sb_card (
 
 create TABLE sb_purchase (
   purchase_id BIGSERIAL NOT NULL primary key,
-  uid varchar UNIQUE,
+  uid varchar,
   balance numeric DEFAULT 0,
   date_added bigint,
   note varchar
