@@ -21,7 +21,7 @@ create table sb_purchase (
   uid varchar UNIQUE,
   email varchar unique,
   balance numeric DEFAULT 0,
-  date_committed bigint,
+  date_added bigint,
   note varchar
 );
 ALTER tABLE sb_purchase ADD CONSTRAINT sb_purchase_sb_user FOREIGN KEY (email) REFERENCES sb_user(email);

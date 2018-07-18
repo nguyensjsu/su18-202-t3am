@@ -10,9 +10,10 @@ package model;
  * @author syle
  */
 public class Purchase extends Transaction {
-
     long purchase_id = 0;
     String note = ""; // purchase note. Default: empty string, in the event that user does not enter any note.
+    
+    public Purchase(){}
 
     public Purchase(double balance, String note) {
         this.balance = balance;
