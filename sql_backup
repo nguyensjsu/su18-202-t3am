@@ -16,12 +16,12 @@ CREATE TABLE sb_user (
 );
 ALTER TABLE sb_user ADD UNIQUE (email);
 
-create table sb_purchase (
+create TABLE sb_purchase (
   purchase_id BIGSERIAL NOT NULL primary key,
   uid varchar UNIQUE,
-  email varchar unique,
+  email varchar,
   balance numeric DEFAULT 0,
   date_added bigint,
   note varchar
 );
-ALTER tABLE sb_purchase ADD CONSTRAINT sb_purchase_sb_user FOREIGN KEY (email) REFERENCES sb_user(email);
+ALTER TABLE sb_purchase ADD CONSTRAINT sb_purchase_sb_user FOREIGN KEY (email) REFERENCES sb_user(email);
