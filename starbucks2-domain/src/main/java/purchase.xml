@@ -10,8 +10,8 @@
     </select>
 
     <insert id="create" parameterType="PURCHASE">
-        INSERT INTO sb_purchase (uid, email, balance, note, date_committed)
-        VALUES(#{uid}, #{email}, #{balance}, #{note}, #{date_committed});
+        INSERT INTO sb_purchase (uid, email, balance, note, date_added)
+        VALUES(#{uid}, #{email}, #{balance}, #{note}, #{date_added});
     </insert>
 
 </mapper>
