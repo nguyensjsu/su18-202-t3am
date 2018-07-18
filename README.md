@@ -90,6 +90,20 @@ curl -X POST \
 ```
 
 
+### Sign in
+#### Curl Sample
+```
+curl -X POST \
+  http://localhost:8202/api/v1/signin \
+  -H 'accept: application/json' \
+  -H 'cache-control: no-cache' \
+  -d '{
+  "email": "syle1@gmail.com",
+  "password": "password"
+}'
+```
+
+
 ## API Contract
 ### Task Breakdown
 #### Core business logic jar
