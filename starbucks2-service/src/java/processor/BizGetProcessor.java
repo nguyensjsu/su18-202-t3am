@@ -1,5 +1,6 @@
 package processor;
 
+import helper.CoreTransactionLogicHelper;
 import helper.JSONHelper;
 import model.Card;
 import java.util.List;
@@ -51,6 +52,14 @@ public class BizGetProcessor extends HttpProcessor {
                     final String email = paramMap.get("email");
                     final UserProfile up = userProfileDao.find(email);
                     if (up != null){
+                        // find the balance
+                        uid = up.getUser_id();
+                        List<Card> cards = cardDao.list(uid);
+                        List<Purchase> purchases = purchaseDao.list(uid);
+                        
+                        double remaining_bal = CoreTransactionLogicHelper.getRemainingBalance(cards, purchases);
+                        up.setBalance(remaining_bal);
+                        
                         resp.setResponse(up);
                     } else {
                         resp.setError(true);
