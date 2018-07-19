@@ -9,6 +9,34 @@ package model;
  *
  * @author syle
  */
-public class ServerResponse {
+public class ServerResponse<T> {
+    protected T response;
+    protected boolean error;
+    protected String msg;
+
+    public T getResponse() {
+        return response;
+    }
+
+    public void setResponse(T response) {
+        this.response = response;
+    }
+
+    public boolean isError() {
+        return error;
+    }
+
+    public void setError(boolean error) {
+        this.error = error;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+    
     
 }
