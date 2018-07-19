@@ -45,6 +45,8 @@ mvn exec:java -pl starbucks2-service
 
 ## Sample Curl / Demo
 ### Sign up (Create User)
+This API is used for NEW users to sign up for new account.
+
 #### Curl Sample
 ```
 curl -X POST \
@@ -62,6 +64,8 @@ https://github.com/nguyensjsu/su18-202-t3am/blob/master/starbucks2-domain/src/ma
 
 
 ### Sign in (Log in)
+This API is used for EXSITING users to sign in with their old account.
+
 #### Curl Sample
 ```
 curl -X POST \
@@ -79,6 +83,8 @@ https://github.com/nguyensjsu/su18-202-t3am/blob/master/starbucks2-domain/src/ma
 
 
 ### Get Cards Reload by UserId
+This API is used to get a list of cards reloaded by userId
+
 #### Curl Sample
 ```
 curl -X GET \
@@ -91,6 +97,8 @@ https://github.com/nguyensjsu/su18-202-t3am/blob/master/starbucks2-domain/src/ma
 
 
 ### Reload Card by UserId
+This API is used to add/reload a card for a user by UserId
+
 #### Curl Sample
 ```
 curl 'http://localhost:8080/api/v1/reload' \8081/no-referrer' \
@@ -105,6 +113,8 @@ https://github.com/nguyensjsu/su18-202-t3am/blob/master/starbucks2-domain/src/ma
 
 
 ### Get Purchases by UserId
+This API is used to get a list of previous purchases by UserID
+
 #### Curl Sample
 ```
 curl -X GET \
@@ -118,6 +128,8 @@ https://github.com/nguyensjsu/su18-202-t3am/blob/master/starbucks2-domain/src/ma
 
 
 ### Add Purchase by UserId
+This API is used to add a purchase by UserID
+
 #### Curl Sample
 ```
 curl 'http://localhost:8080/api/v1/purchase' \
@@ -129,44 +141,7 @@ curl 'http://localhost:8080/api/v1/purchase' \
 https://github.com/nguyensjsu/su18-202-t3am/blob/master/starbucks2-domain/src/main/java/model/Purchase.java
 
 
-## API Contract
-### Task Breakdown
-#### Core business logic jar
-Business logics will be bundled as a jar to be used inside the rest api app (either Spring Boot or Jersey)
-
-#### Back End
-API App to have the following api's:
-
-##### GET /api/v1/authentication
-input: ?user_id=syle
-output: nothing, but will create the new user if the user_id is brandh new
-
-##### GET /api/v1/user_info return the information related to the user by user_id
-input: ?user_id=syle
-output:
-{
-user_id: "syle",
-balance: 20
-}
-
-##### GET /api/v1/transactions list all the transactions (card reloads vs purchase history) by user_id
-timestamp is epoch unix timestamp
-input: ?user_id=syle
-output:[
-{type: 'reload', balance: 20.00, timestamp: 1234},
-{type: 'purchase', balance: -5, timestamp: 4567}
-]
-
-##### POST /api/v1/reload add a new card to the list
-input: user_id, balance, card_id, card_code
-output: no output (HTTP Response code - some success code)
-
-##### POST /api/v1/purchase add a new purchase transaction to the list
-input: user_id, balance, note
-output: no output (HTTP Response code - some success code)
-
-
-#### Front End
+### Front End Flows/Components
 Front end - will implement both web and android, and have the following components:
 
 a. login flow (simply ask for first name and last name), will use this for authentication
