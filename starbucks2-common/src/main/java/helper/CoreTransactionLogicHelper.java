@@ -6,6 +6,8 @@
 package helper;
 
 import java.util.List;
+import model.Card;
+import model.Purchase;
 import model.Transaction;
 
 /**
@@ -13,11 +15,15 @@ import model.Transaction;
  * @author syle
  */
 public class CoreTransactionLogicHelper {
+    public static boolean isUserIdValid(String uid){
+        return uid != null && uid.trim().length() > 0;
+    }
+    
     public static boolean isTransactionValid(double remaining_bal, double item_cost){
         return remaining_bal > item_cost;
     }
     
-    public static double getRemainingBalance(List<Transaction> cards, List<Transaction> purchases){
+    public static double getRemainingBalance(List<Card> cards, List<Purchase> purchases){
         double remaining_bal = 0;
         
         for(Transaction t : cards){

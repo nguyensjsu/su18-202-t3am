@@ -1,8 +1,10 @@
 package processor;
 
+import helper.CoreTransactionLogicHelper;
 import helper.DateHelper;
 import helper.JSONHelper;
 import helper.UUIDHelper;
+import java.util.List;
 import model.Card;
 import model.Purchase;
 import model.UserProfile;
@@ -10,6 +12,7 @@ import model.AuthRequest;
 
 import java.util.Map;
 import model.ServerResponse;
+import model.Transaction;
 
 public class BizPostProcessor extends HttpProcessor {
     @Override
@@ -28,9 +31,27 @@ public class BizPostProcessor extends HttpProcessor {
                 case "purchase":
                     // User ID, balance(or the cost of the order), and purchase location will be from the body
                     final Purchase p = JSONHelper.fromJson2(body, Purchase.class);
-                    p.setDate_added(DateHelper.getCurrentEpochTimestamp());
-                    purchaseDao.create(p);
-                    resp.setResponse(p);
+                    
+                    // validate you have enough balance
+                    final String uid = p.getUid();
+                    if(CoreTransactionLogicHelper.isUserIdValid(uid)){
+                        List<Card> cards = cardDao.list(uid);
+                        List<Purchase> purchases = purchaseDao.list(uid);
+                        
+                        double remaining_bal = CoreTransactionLogicHelper.getRemainingBalance(cards, purchases);
+                        
+                        if(CoreTransactionLogicHelper.isTransactionValid(remaining_bal, p.getBalance())){
+                            p.setDate_added(DateHelper.getCurrentEpochTimestamp());
+                            purchaseDao.create(p);
+                            resp.setResponse(p);
+                        } else {
+                            resp.setError(true);
+                            resp.setMsg("You do not have enough money left to make this purchase");
+                        }
+                    } else {
+                        resp.setError(true);
+                        resp.setMsg("Invalid UserID");
+                    }
                     break;
 
                 case "signup":
