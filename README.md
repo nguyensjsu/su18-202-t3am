@@ -197,9 +197,9 @@ e. add new purchase (refer to the above api for input)
 - [X] User Signup (Sy)
 - [X] User Signin (Hyunwook)
 - [X] User Signout (Hyunwook)
-- [ ] Get User Info by UserID (Sy)
+- [X] Get User Info by UserID (Sy)
 - [X] Create Card / Reload (Lin)
-- [ ] Create Purchase / Payment (Hyunwook)
+- [X] Create Purchase / Payment (Hyunwook)
 - [X] Get All Transactions (Cards & Purchase) by uid (Hyunwook)
   - [X] Get Cards by uid (Lin)
   - [X] Get Purchase by uid (Kevin)
@@ -207,7 +207,7 @@ e. add new purchase (refer to the above api for input)
 
 ### Testings / Misc
 - [ ] Unit Tests
-- [ ] Integration
+- [X] Integration
 - [ ] UML Diagrams Documentation
 - [ ] Project Report
 
@@ -215,7 +215,7 @@ e. add new purchase (refer to the above api for input)
 
 ### Desired Extra Credit Sections
 - [X] Implement a "real" iOS or Android Mobile App calling the REST API
+- [X] Implement Web "Front-End" Deployed to Heroku for Starbucks Payment Card management
 - [ ] Deploy API to AWS in an Auto Scaled EC2 Cluster with Load Balancer
 - [ ] Deploy API to AWS as Docker Containers in Amazon Containers
 - [ ] Deploy API to AWS as Docker Containers in Amazon EKS
-- [X] Implement Web "Front-End" Deployed to Heroku for Starbucks Payment Card management
