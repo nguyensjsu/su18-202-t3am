@@ -1,0 +1,33 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package helper;
+
+import java.util.List;
+import model.Transaction;
+
+/**
+ *
+ * @author syle
+ */
+public class CoreTransactionLogicHelper {
+    public static boolean isTransactionValid(double remaining_bal, double item_cost){
+        return remaining_bal > item_cost;
+    }
+    
+    public static double getRemainingBalance(List<Transaction> cards, List<Transaction> purchases){
+        double remaining_bal = 0;
+        
+        for(Transaction t : cards){
+            remaining_bal += t.getBalance();
+        }
+        
+        for(Transaction t : purchases){
+            remaining_bal += t.getBalance();
+        }
+        
+        return remaining_bal;
+    }
+}
