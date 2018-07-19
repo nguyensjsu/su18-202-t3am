@@ -31,7 +31,7 @@ public class CoreTransactionLogicHelper {
         }
         
         for(Transaction t : purchases){
-            remaining_bal += t.getBalance();
+            remaining_bal -= t.getBalance();
         }
         
         return remaining_bal;
