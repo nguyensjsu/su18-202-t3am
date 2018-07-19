@@ -15,7 +15,7 @@ public class AuthRequest {
    boolean authenticated = false;
 
    public boolean authenticate(UserProfile user) {
-      if ( password.equals( user.getPassword() ) ) {
+      if ( password != null && password.equals( user.getPassword() ) ) {
          authenticated = true;
       } else {
          authenticated = false;
