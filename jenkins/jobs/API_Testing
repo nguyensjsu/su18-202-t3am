@@ -1,0 +1,29 @@
+# Hyunwook Shin
+whoami
+sudo yum install git -y
+sudo yum install maven -y
+
+# Original repo not accessible
+# git clone git@github.com:nguyensjsu/su18-202-t3am.git
+if [ ! -d su18-202-t3am ] ; then
+    cp -r /data/su18-202-t3am .
+fi
+
+cd su18-202-t3am
+
+export NEW_PASSWD=$SQL_ADMIN
+
+set +x
+make populate
+set -x
+
+git diff | grep +++ 
+make run &
+sleep 90
+make test
+
+set +x
+make populate
+set -x
+
+kill -9 $(ps -ef | grep java.*jar | grep -v grep | grep Rest | awk '{print $2}')
