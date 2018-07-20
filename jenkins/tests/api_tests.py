@@ -42,6 +42,16 @@ class TestAPIs( unittest.TestCase ):
       assert 'balance' in info
       assert testemail == info[ 'email' ]
   
+   def testPurchases( self ):
+      endpoint = "/api/v1/purchases"
+      url = URL.format( endpoint=endpoint, query="?uid=%s" % TEST_UID )
+      response = requests.get( url )
+      for entry in json.loads( response.text ):
+         assert 'uid' in entry
+         assert 'purchase_id' in entry
+         assert 'note' in entry
+         assert 'latPostion' in entry
+         assert 'longPosition' in entry
 
 if __name__ == "__main__":
    unittest.main(argv=sys.argv[1:])
