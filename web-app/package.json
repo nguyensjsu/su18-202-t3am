@@ -1,0 +1,22 @@
+{
+  "name": "cmpe202-t3am-starbucks-webapp",
+  "version": "1.0.0",
+  "description": "Deploy to heroku app using node js to serve static html",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/synle/cmpe202-t3am-starbucks-webapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/synle/cmpe202-t3am-starbucks-webapp/issues"
+  },
+  "homepage": "https://github.com/synle/cmpe202-t3am-starbucks-webapp#readme",
+  "dependencies": {}
+}
