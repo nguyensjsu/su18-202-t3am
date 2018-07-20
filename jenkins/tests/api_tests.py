@@ -24,7 +24,7 @@ class TestAPIs( unittest.TestCase ):
       endpoint = "/api/v1/cards"
       url = URL.format( endpoint=endpoint, query="?uid=%s" % TEST_UID )
       response = requests.get( url )
-      for entry in json.loads( response.text ):
+      for entry in json.loads( response.text )[ 'response' ]:
          assert 'uid' in entry
          assert 'date_added' in entry
          assert len( entry[ 'code' ] ) == 3
@@ -37,7 +37,7 @@ class TestAPIs( unittest.TestCase ):
       url = URL.format( endpoint=endpoint, query="" )
       data = '{"email": ' + testemail + ', "password" :"password"}'
       response = requests.post( url, data=data )
-      info = json.loads( response.text )
+      info = json.loads( response.text )[ 'response' ]
       assert 'user_id' in info
       assert 'balance' in info
       assert testemail == info[ 'email' ]
@@ -46,7 +46,7 @@ class TestAPIs( unittest.TestCase ):
       endpoint = "/api/v1/purchases"
       url = URL.format( endpoint=endpoint, query="?uid=%s" % TEST_UID )
       response = requests.get( url )
-      for entry in json.loads( response.text ):
+      for entry in json.loads( response.text )[ 'response' ]:
          assert 'uid' in entry
          assert 'purchase_id' in entry
          assert 'note' in entry
