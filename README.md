@@ -162,6 +162,7 @@ e. add new purchase (refer to the above api for input)
 - Added Validation to API
 - Wrap server response in ServerResponse
 - Start work on project report
+- Successfully run on AWS ECS Fargate
 
 ### 07/17/2018 and 07/18/2018
 - Continue working on integrating Web FE in Add Purchase Flow
@@ -201,6 +202,7 @@ e. add new purchase (refer to the above api for input)
 - [ ] [Nice to have]. Set up CI/CD pipeline for the above webapp/noSQL in the github repo...
 
 ### API Work
+- [X] Server framework (Lin)
 - [X] User Signup (Sy)
 - [X] User Signin (Hyunwook)
 - [X] User Signout (Hyunwook)
@@ -224,5 +226,5 @@ e. add new purchase (refer to the above api for input)
 - [X] Implement a "real" iOS or Android Mobile App calling the REST API
 - [X] Implement Web "Front-End" Deployed to Heroku for Starbucks Payment Card management
 - [ ] Deploy API to AWS in an Auto Scaled EC2 Cluster with Load Balancer
-- [ ] Deploy API to AWS as Docker Containers in Amazon Containers
+- [X] Deploy API to AWS as Docker Containers in Amazon Containers
 - [ ] Deploy API to AWS as Docker Containers in Amazon EKS
