@@ -156,7 +156,14 @@ e. add new purchase (refer to the above api for input)
 
 
 ## Sprint Updates
-### 07/17/2018 and 07/17/2018
+### 07/19/2018
+- Complete last set of flow front end integration
+- Start work on the deployment of front end heroku deployment
+- Added Validation to API
+- Wrap server response in ServerResponse
+- Start work on project report
+
+### 07/17/2018 and 07/18/2018
 - Continue working on integrating Web FE in Add Purchase Flow
 - Refactored and clean up code to make the Add Purchase API flow to work
 - Clean up sql_backup file
