@@ -198,7 +198,7 @@ e. add new purchase (refer to the above api for input)
 ## TODO's
 ### Infra Works
 - [X] Set up AWS Dynamo DB (for NoSQL) or RDS to persist data. 2 instances: 1 for prod and 1 for dev.
-- [X] Set up the pipeline for webapp (AWS Beanstalk) includes the domain and basic hello world api.
+- [X] Set up EC2 instances or ECS Fargate as API server.
 - [ ] [Nice to have]. Set up CI/CD pipeline for the above webapp/noSQL in the github repo...
 
 ### API Work
@@ -215,7 +215,7 @@ e. add new purchase (refer to the above api for input)
 
 
 ### Testings / Misc
-- [ ] Unit Tests
+- [X] Unit Tests
 - [X] Integration
 - [ ] UML Diagrams Documentation
 - [ ] Project Report
