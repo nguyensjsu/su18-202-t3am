@@ -18,11 +18,11 @@ unpopulate:
 install: clean
 	mvn install
 
-test: install
+test-junit: install
 	mvn test
 
 run: install
 	java -cp starbucks2-service/target/starbucks2-service-$(VERSION).jar RestService
 
-#test: test-junit
-	# Disabling $(MAKE) -C jenkins test
+test: test-junit
+	$(MAKE) -C jenkins test
