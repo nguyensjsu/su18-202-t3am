@@ -42,6 +42,8 @@ mvn exec:java -pl starbucks2-service
 - api : http://cmpe202-java-rest-api.herokuapp.com
 - webapp : http://cmpe202-t3am-starbucks-webapp.herokuapp.com
 
+### Jenkins Server
+- https://ec2-18-222-125-85.us-east-2.compute.amazonaws.com/jenkins
 
 ## Sample Curl / Demo
 ### Sign up (Create User)
@@ -208,7 +210,7 @@ e. add new purchase (refer to the above api for input)
 ### Infra Works
 - [X] Set up AWS Dynamo DB (for NoSQL) or RDS to persist data. 2 instances: 1 for prod and 1 for dev.
 - [X] Set up EC2 instances or ECS Fargate as API server.
-- [ ] [Nice to have]. Set up CI/CD pipeline for the above webapp/noSQL in the github repo...
+- [X] Set up CI/CD pipeline for the above webapp/noSQL in the github repo...
 
 ### API Work
 - [X] Server framework (Lin)
