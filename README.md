@@ -156,6 +156,15 @@ e. add new purchase (refer to the above api for input)
 
 
 ## Sprint Updates
+### 07/21/2018 to 07/27/2018
+- Team mainly works on project report
+
+### 07/20/2018
+- Done Front End and Deployed Front End App and API to Heroku
+  - api : http://cmpe202-java-rest-api.herokuapp.com
+  - webapp : http://cmpe202-t3am-starbucks-webapp.herokuapp.com
+- Started and work on report
+
 ### 07/19/2018
 - Complete last set of flow front end integration
 - Start work on the deployment of front end heroku deployment
@@ -164,7 +173,7 @@ e. add new purchase (refer to the above api for input)
 - Start work on project report
 - Successfully run on AWS ECS Fargate
 
-### 07/17/2018 and 07/18/2018
+### 07/17/2018 to 07/18/2018
 - Continue working on integrating Web FE in Add Purchase Flow
 - Refactored and clean up code to make the Add Purchase API flow to work
 - Clean up sql_backup file
