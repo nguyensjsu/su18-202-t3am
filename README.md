@@ -7,6 +7,13 @@ Welcome to the su18-202-t3am wiki!
 - Hyunwook Shin
 - Lin Cheng
 
+## Main Docs
+### Team Project Report
+https://github.com/nguyensjsu/su18-202-t3am/blob/master/CMPE%20202%20-%20T3am%20Group%20Project%20Report.pdf
+
+### Team Presentation Slides
+TBD
+
 ## Important Links
 ### Sprint board in google sheet
 Please update your task here....
