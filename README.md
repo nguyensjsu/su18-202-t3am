@@ -12,7 +12,7 @@ Welcome to the su18-202-t3am wiki!
 https://github.com/nguyensjsu/su18-202-t3am/blob/master/CMPE%20202%20-%20T3am%20Group%20Project%20Report.pdf
 
 ### Team Presentation Slides
-TBD
+https://github.com/nguyensjsu/su18-202-t3am/blob/master/CMPE%20202%20-%20T3am%20Group%20Project%20Slidedeck.pdf
 
 ## Important Links
 ### Sprint board in google sheet
