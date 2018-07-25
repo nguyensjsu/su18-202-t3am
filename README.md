@@ -37,8 +37,8 @@ mvn exec:java -pl starbucks2-service
 
 ### Demo Envs
 #### Staging Env
-- api: http://ec2-34-192-241-153.compute-1.amazonaws.com:8202/api/v1/cards?uid=1
-- webapp: https://cmpe202-t3am-starbucks-webapp.herokuapp.com/
+- api: http://ec2-34-192-241-153.compute-1.amazonaws.com:8202
+- webapp: https://cmpe202-t3am-starbucks-webapp.herokuapp.com
 
 ### Prod Env
 - api: TBD
@@ -235,14 +235,14 @@ e. add new purchase (refer to the above api for input)
 ### Testings / Misc
 - [X] Unit Tests
 - [X] Integration
-- [ ] UML Diagrams Documentation
-- [ ] Project Report
+- [X] UML Diagrams Documentation
+- [X] Project Report
 
 
 
 ### Desired Extra Credit Sections
-- [X] Implement a "real" iOS or Android Mobile App calling the REST API
+- [ ] Implement a "real" iOS or Android Mobile App calling the REST API
 - [X] Implement Web "Front-End" Deployed to Heroku for Starbucks Payment Card management
-- [ ] Deploy API to AWS in an Auto Scaled EC2 Cluster with Load Balancer
 - [X] Deploy API to AWS as Docker Containers in Amazon Containers
+- [ ] Deploy API to AWS in an Auto Scaled EC2 Cluster with Load Balancer
 - [ ] Deploy API to AWS as Docker Containers in Amazon EKS
