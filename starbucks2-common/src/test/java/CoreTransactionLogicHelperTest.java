@@ -30,61 +30,61 @@ public class CoreTransactionLogicHelperTest {
      public void testValidTransaction() throws Exception {
         assertEquals("Has enougn balance to buy", true, CoreTransactionLogicHelper.isTransactionValid(2, 1));
      }
-     
+
      @Test
      public void testInvalidTransaction() throws Exception {
         assertEquals("Not enougn balance to buy", false, CoreTransactionLogicHelper.isTransactionValid(1, 2));
      }
-     
+
      @Test
      public void testGetRemainingBalance(){
          List<Card> cards = new ArrayList<>();
          List<Purchase> purchases = new ArrayList<>();
-         
+
          // add 20, 40, 60
          // deduct 30
          // remaining = 20 + 40 + 60 - 30  - 10 = 80
-         
+
          cards.add(new Card("111111111", "111", 20));
          cards.add(new Card("111111112", "222", 40));
          cards.add(new Card("111111113", "333", 60));
-         
+
          purchases.add(new Purchase(30, "Team Offsite"));
          purchases.add(new Purchase(10, "Morning Drink"));
-         
-         
+
+
          assertEquals("remaining = 20 + 40 + 60 - 30  - 10 = 80", 80, CoreTransactionLogicHelper.getRemainingBalance(cards, purchases), 0.0000000001);
      }
-     
-     
+
+
      @Test
      public void testIsValidUserId(){
          assertEquals("null", false, CoreTransactionLogicHelper.isUserIdValid(null));
          assertEquals("empty string", false, CoreTransactionLogicHelper.isUserIdValid(""));
          assertEquals("non-empty whitespace", false, CoreTransactionLogicHelper.isUserIdValid("     "));
-         
+
          assertEquals("valid", true, CoreTransactionLogicHelper.isUserIdValid("abcdef-12345"));
      }
-     
-     
+
+
      @Test
      public void testIsValidCardNumber(){
          assertEquals("null", false, CoreTransactionLogicHelper.isCardNumberValid(null));
          assertEquals("empty string", false, CoreTransactionLogicHelper.isCardNumberValid(""));
          assertEquals("non-empty whitespace", false, CoreTransactionLogicHelper.isCardNumberValid("     "));
-         assertEquals("code needs to be 9 char", true, CoreTransactionLogicHelper.isCardNumberValid("abcdef-12345"));
-         
+         assertEquals("code needs to be 9 char", false, CoreTransactionLogicHelper.isCardNumberValid("abcdef-12345"));
+
          assertEquals("valid", true, CoreTransactionLogicHelper.isCardNumberValid("123456789"));
      }
-     
-     
+
+
      @Test
      public void testIsCardCodeValid(){
          assertEquals("null", false, CoreTransactionLogicHelper.isCardCodeValid(null));
          assertEquals("empty string", false, CoreTransactionLogicHelper.isCardCodeValid(""));
          assertEquals("non-empty whitespace", false, CoreTransactionLogicHelper.isCardCodeValid("     "));
-         assertEquals("code needs to be 9 char", true, CoreTransactionLogicHelper.isCardCodeValid("abcdef-12345"));
-         
+         assertEquals("code needs to be 9 char", false, CoreTransactionLogicHelper.isCardCodeValid("abcdef-12345"));
+
          assertEquals("valid", true, CoreTransactionLogicHelper.isCardCodeValid("111"));
      }
 }
