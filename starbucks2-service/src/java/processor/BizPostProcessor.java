@@ -23,9 +23,19 @@ public class BizPostProcessor extends HttpProcessor {
             switch (path) {
                 case "reload":
                     final Card c = JSONHelper.fromJson2(body, Card.class);
-                    c.setDate_added(DateHelper.getCurrentEpochTimestamp());
-                    cardDao.create(c);
-                    resp.setResponse(c);
+                    
+                    if(!CoreTransactionLogicHelper.isCardCodeValid(c.getCode())){
+                        resp.setError(true);
+                        resp.setMsg("Invalid Card Code - Needs to be 3 digit long");
+                    } else if(!CoreTransactionLogicHelper.isCardNumberValid(c.getNumber())){
+                        resp.setError(true);
+                        resp.setMsg("Invalid Card Number - Needs to be 9 digit long");
+                    } else {
+                        c.setDate_added(DateHelper.getCurrentEpochTimestamp());
+                        cardDao.create(c);
+                        resp.setResponse(c);
+                    }
+                    
                     break;
 
                 case "purchase":
