@@ -19,6 +19,14 @@ public class CoreTransactionLogicHelper {
         return uid != null && uid.trim().length() > 0;
     }
     
+    public static boolean isCardNumberValid(String s){
+        return s != null && s.trim().length() == 9;
+    }
+    
+    public static boolean isCardCodeValid(String s){
+        return s != null && s.trim().length() == 3;
+    }
+    
     public static boolean isTransactionValid(double remaining_bal, double item_cost){
         return remaining_bal > item_cost;
     }
