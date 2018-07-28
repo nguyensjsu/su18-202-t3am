@@ -40,14 +40,11 @@ mvn exec:java -pl starbucks2-service
 - api: http://ec2-34-192-241-153.compute-1.amazonaws.com:8202
 - webapp: https://cmpe202-t3am-starbucks-webapp.herokuapp.com
 
-### Prod Env
-- api: TBD
-- webapp: TBD
-
-
-### Heroku Envs
-- api : http://cmpe202-java-rest-api.herokuapp.com
-- webapp : http://cmpe202-t3am-starbucks-webapp.herokuapp.com
+### Prod Envs
+- api: 
+  - http://lb1-1117358267.us-east-1.elb.amazonaws.com
+  - http://cmpe202-java-rest-api.herokuapp.com
+- webapp: http://cmpe202-t3am-starbucks-webapp.herokuapp.com
 
 ### Jenkins Server
 - https://ec2-18-222-125-85.us-east-2.compute.amazonaws.com/jenkins
